@@ -1,6 +1,7 @@
 # Vars
 $test = 'Yep.. Working!'
 $preferedDir = 'C:\git\work'
+$scriptsDir = 'C:\Users\uc249159'
 
 # Check
 $dir = pwd
@@ -11,7 +12,7 @@ switch -Regex ($dir) {
 }
 
 $prefix = 'g'
-Get-ChildItem 'C:\Users\uc249159\ps-scripts\git' -Filter *.ps1 | 
+Get-ChildItem "$scriptsDir\ps-scripts\git" -Filter *.ps1 | 
 Foreach-Object {
     if ($_ -notlike '_profile.ps1') {
         $alias = $_ -replace ".ps1",""
