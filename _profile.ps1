@@ -6,8 +6,8 @@ $scriptsDir = 'C:\Users\uc249159'
 # Check
 $dir = pwd
 switch -Regex ($dir) {
-    '^C\:\\' { set-location $preferedDir }
-    '^H\:\\' { set-location $preferedDir }
+    '^C\:\\$' { set-location $preferedDir }
+    '^H\:\\$' { set-location $preferedDir }
     Default {}
 }
 
