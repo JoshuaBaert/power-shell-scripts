@@ -1,7 +1,7 @@
 $commitMessage = $args[0]
 
 if ($commitMessage -eq $null) {
-    Write-Error 'You need to pass a commit message'
+    Write-Warning 'You need to pass a commit message'
 } else {
     Write-Warning "Have you already merged Master? (y or n)"
 
