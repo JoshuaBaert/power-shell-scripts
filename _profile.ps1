@@ -1,4 +1,4 @@
-$scriptsDir = 'C:\Users\Joshua\scripts' 
+$scriptsDir = 'C:\Users\Joshua\scripts'
 
 # To get this file working you need to have the folowing file :
 # C:\WINDOWS\System32\WindowsPowerShell\v1.0\profile.ps1
