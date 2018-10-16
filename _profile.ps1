@@ -17,7 +17,7 @@ Import-Module $scriptsDir\colorsEtc.ps1
 $test = 'Yep.. Working!'
 
 # Check working director and maybe redirect
-$dir = pwd
+$dir = Get-Location
 
 if ($excludedDirs -contains $dir){
     Set-Location $preferedDir
