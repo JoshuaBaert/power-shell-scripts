@@ -6,5 +6,5 @@ if($message -like '*nothing to commit, working tree clean*') {
     git checkout -
     git merge master
 } else {
-    Write-Warning 'Not working on a clean branch'
+    Write-Warning 'Not working on a clean branch or not in a git directory'
 }
