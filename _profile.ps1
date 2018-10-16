@@ -19,7 +19,6 @@ $test = 'Yep.. Working!'
 # Check working director and maybe redirect
 $dir = pwd
 
-write $excludedDirs
 if ($excludedDirs -contains $dir){
     Set-Location $preferedDir
 }
