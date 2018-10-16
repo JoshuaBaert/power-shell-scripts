@@ -24,10 +24,10 @@ $colors.ErrorBackgroundColor = "Black"
 
 Set-PSReadlineOption -TokenKind Comment -ForegroundColor DarkGreen
 Set-PSReadlineOption -TokenKind Keyword -ForegroundColor Green
-Set-PSReadlineOption -TokenKind String -ForegroundColor Yellow
+Set-PSReadlineOption -TokenKind String -ForegroundColor Gray
 Set-PSReadlineOption -TokenKind Operator -ForegroundColor Red
 Set-PSReadlineOption -TokenKind Variable -ForegroundColor Cyan
-Set-PSReadlineOption -TokenKind Command -ForegroundColor Yellow
+Set-PSReadlineOption -TokenKind Command -ForegroundColor Green
 Set-PSReadlineOption -TokenKind Parameter -ForegroundColor Cyan
 Set-PSReadlineOption -TokenKind Type -ForegroundColor Magenta
 Set-PSReadlineOption -TokenKind Number -ForegroundColor White
