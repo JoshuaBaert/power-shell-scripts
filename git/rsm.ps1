@@ -13,7 +13,7 @@ if ($commitMessage -eq $null) {
     switch ($KeyPress.Character) {
         Y { $canSquash = $true }
         N { $canSquash = $false }
-        Default { $canSquash = $flase }
+        Default { $canSquash = $false }
     }
 
     if($canSquash) {
