@@ -6,7 +6,6 @@
 # Import-Module $scriptsDir\_profile.ps1
 
 # Required config Vars
-
 import-Module $scriptsDir\config.ps1
 
 # Import Extra Modules 
@@ -23,8 +22,7 @@ if ($excludedDirs -contains $dir){
 }
 
 $prefix = 'g'
-Get-ChildItem "$scriptsDir\git" -Filter *.ps1 | 
-Foreach-Object {
+Get-ChildItem "$scriptsDir\git" -Filter *.ps1 | Foreach-Object {
     if ($_ -notlike '_profile.ps1') {
         $alias = $_ -replace ".ps1",""
         New-Alias "$prefix$alias" $_.FullName
