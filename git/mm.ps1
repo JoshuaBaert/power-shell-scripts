@@ -14,6 +14,3 @@ if($message -like '*nothing to commit, working tree clean*') {
 } else {
     Write-Warning 'Not working on a clean branch or not in a git directory'
 }
-
-$message = $null
-$status = $null

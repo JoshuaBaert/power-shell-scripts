@@ -25,8 +25,3 @@ if ($commitMessage -eq $null) {
         Write-Warning "Did NOT squash your branch"
     }
 }
-
-$commitMessage = $null
-$keyOption = $null
-$keyPress = $null
-$canSquash = $null
