@@ -28,3 +28,5 @@ Get-ChildItem "$scriptsDir\git" -Filter *.ps1 | Foreach-Object {
         New-Alias "$prefix$alias" $_.FullName
     }
 }
+
+$prefix = $null

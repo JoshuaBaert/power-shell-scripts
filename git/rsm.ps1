@@ -5,12 +5,12 @@ if ($commitMessage -eq $null) {
 } else {
     Write-Warning "Have you already merged Master? (y or n)"
 
-    $KeyOption = 'Y','N'
-    while ($KeyOption -notcontains $KeyPress.Character) {
-        $KeyPress = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+    $keyOption = 'Y','N'
+    while ($keyOption -notcontains $keyPress.Character) {
+        $keyPress = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
     }
 
-    switch ($KeyPress.Character) {
+    switch ($keyPress.Character) {
         Y { $canSquash = $true }
         N { $canSquash = $false }
         Default { $canSquash = $false }
@@ -25,3 +25,8 @@ if ($commitMessage -eq $null) {
         Write-Warning "Did NOT squash your branch"
     }
 }
+
+$commitMessage = $null
+$keyOption = $null
+$keyPress = $null
+$canSquash = $null
