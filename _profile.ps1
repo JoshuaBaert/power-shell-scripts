@@ -14,7 +14,7 @@ if ($excludedDirs -contains $dir){
     Set-Location $preferedDir
 }
 
-$prefix = 'g'
+$prefix = 'g-'
 Get-ChildItem "$scriptsDir\git" -Filter *.ps1 | Foreach-Object {
     if ($_ -notlike '_profile.ps1') {
         $alias = $_ -replace ".ps1",""
