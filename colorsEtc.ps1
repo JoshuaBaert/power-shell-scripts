@@ -44,3 +44,4 @@ Set-PSReadlineOption -TokenKind Type -BackgroundColor Black
 Set-PSReadlineOption -TokenKind Number -BackgroundColor Black
 Set-PSReadlineOption -TokenKind Member -BackgroundColor Black
 
+Set-PSReadlineOption -BellStyle None
