@@ -22,4 +22,5 @@ Get-ChildItem "$scriptsDir\git" -Filter *.ps1 | Foreach-Object {
     }
 }
 
-$prefix = $null
+Remove-Variable alias
+Remove-Variable prefix
