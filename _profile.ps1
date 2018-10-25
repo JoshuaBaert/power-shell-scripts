@@ -14,11 +14,14 @@ if ($excludedDirs -contains $dir){
     Set-Location $preferedDir
 }
 
-$prefix = 'g-'
-Get-ChildItem "$scriptsDir\git" -Filter *.ps1 | Foreach-Object {
-    if ($_ -notlike '_profile.ps1') {
-        $alias = $_ -replace ".ps1",""
-        New-Alias "$prefix$alias" $_.FullName
+Get-ChildItem "$scriptsDir" -Directory | ForEach-Object {
+    $prefix = $_.Name -replace "(\w).*", '$1'
+
+    Get-ChildItem $_.FullName -Filter *.ps1 | Foreach-Object {
+        if ($_ -notlike '_profile.ps1') {
+            $alias = $_ -replace ".ps1",""
+            New-Alias "$prefix$alias" $_.FullName
+        }
     }
 }
 
