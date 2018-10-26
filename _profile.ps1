@@ -20,6 +20,7 @@ Get-ChildItem "$scriptsDir" -Directory | ForEach-Object {
     Get-ChildItem $_.FullName -Filter *.ps1 | Foreach-Object {
         if ($_ -notlike '_profile.ps1') {
             $alias = $_ -replace ".ps1",""
+            New-Alias "$prefix$alias" $_.FullName
         }
     }
 }
