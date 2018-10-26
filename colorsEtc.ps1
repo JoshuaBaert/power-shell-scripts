@@ -29,7 +29,7 @@ Set-PSReadlineOption -TokenKind Operator -ForegroundColor Red
 Set-PSReadlineOption -TokenKind Variable -ForegroundColor Cyan
 Set-PSReadlineOption -TokenKind Command -ForegroundColor Green
 Set-PSReadlineOption -TokenKind Parameter -ForegroundColor Cyan
-Set-PSReadlineOption -TokenKind Type -ForegroundColor Magenta
+Set-PSReadlineOption -TokenKind Type -ForegroundColor Cyan
 Set-PSReadlineOption -TokenKind Number -ForegroundColor White
 Set-PSReadlineOption -TokenKind Member -ForegroundColor White
 
