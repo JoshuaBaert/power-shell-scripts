@@ -27,3 +27,5 @@ Get-ChildItem "$scriptsDir" -Directory | ForEach-Object {
 
 Remove-Variable alias
 Remove-Variable prefix
+
+function cdps { Set-Location $scriptsDir }
