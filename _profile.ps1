@@ -1,5 +1,5 @@
 # Config Vars
-import-Module $scriptsDir\local.ps1
+Import-Module $scriptsDir\local.ps1
 
 # Import Extra Modules 
 if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\colorsEtc.ps1 }
@@ -17,10 +17,15 @@ if ($excludedDirs -contains $dir){
 Get-ChildItem "$scriptsDir" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
 
+    if($_.Name -eq 'chocolatey'){ $prefix = 'ch' }
+
     Get-ChildItem $_.FullName -Filter *.ps1 | Foreach-Object {
         if ($_ -notlike '_profile.ps1') {
             $alias = $_ -replace ".ps1",""
+            write "$prefix$alias"
             New-Alias "$prefix$alias" $_.FullName
+        } elseif($_ -like '_profile.ps1') {
+            Import-Module $_.FullName
         }
     }
 }

@@ -1,0 +1,1 @@
+function ch-ls { choco list --local-only }
