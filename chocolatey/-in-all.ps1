@@ -1,5 +1,5 @@
-$packages = 
-    'git',
+$packages = 'git',
+    '7zip',
     'slack',
     'nodejs',
     'cyberduck',

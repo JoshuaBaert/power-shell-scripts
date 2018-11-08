@@ -1,1 +1,1 @@
-Write-Host 'yep it worked'
+docker ps -a
