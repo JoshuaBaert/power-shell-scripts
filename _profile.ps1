@@ -22,7 +22,6 @@ Get-ChildItem "$scriptsDir" -Directory | ForEach-Object {
     Get-ChildItem $_.FullName -Filter *.ps1 | Foreach-Object {
         if ($_ -notlike '_profile.ps1') {
             $alias = $_ -replace ".ps1",""
-            write "$prefix$alias"
             New-Alias "$prefix$alias" $_.FullName
         } elseif($_ -like '_profile.ps1') {
             Import-Module $_.FullName
