@@ -1,5 +1,5 @@
 # Config Vars
-import-Module $scriptsDir\config.ps1
+import-Module $scriptsDir\local.ps1
 
 # Import Extra Modules 
 if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\colorsEtc.ps1 }
