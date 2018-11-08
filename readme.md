@@ -5,7 +5,7 @@ To get this file working you need to have the folowing file :
 then add these lines to that file:
 
 ```
-$scriptsDir C:\path\to\this\dir <--- Important!!
+$scriptsDir = C:\path\to\this\dir <--- Important!!
 Import-Module $scriptsDir\_profile.ps1
 ```
 
