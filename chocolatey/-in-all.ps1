@@ -1,7 +1,8 @@
 $packages = 
     'git',
-    'nodejs',
     'slack',
+    'nodejs',
+    'cyberduck',
     'greenshot',
     'jetbrainstoolbox'
 
@@ -22,5 +23,3 @@ if($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administr
 } else {
     Write-Error 'Not in admin, retry in admin'
 }
-
-
