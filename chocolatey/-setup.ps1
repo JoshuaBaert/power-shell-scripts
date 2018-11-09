@@ -1,6 +1,7 @@
 $packages = 'git',
     '7zip',
     'slack',
+    'vscode',
     'nodejs',
     'cyberduck',
     'greenshot',
@@ -14,7 +15,7 @@ $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Pri
 if($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){
     forEach ($p in $packages) {
         if($list -like "*$p*") {
-            Write-Host 'not installing' $p
+            Write-Host 'skipping' $p
         }else {
             Write-Host 'installing' $p
             choco install --confirm $p
