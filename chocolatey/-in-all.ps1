@@ -23,3 +23,6 @@ if($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administr
 } else {
     Write-Error 'Not in admin, retry in admin'
 }
+
+$win10packages = 'wsl-ubuntu-1804'
+# TODO Install windows 10 packages??
