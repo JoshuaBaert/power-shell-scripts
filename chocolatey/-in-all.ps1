@@ -26,3 +26,4 @@ if($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administr
 
 $win10packages = 'wsl-ubuntu-1804'
 # TODO Install windows 10 packages??
+# (Get-WMIobject Win32_Operatingsystem).version << Gets version number
