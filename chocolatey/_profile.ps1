@@ -1,1 +1,1 @@
-function ch-ls { choco list --local-only }
+function chls { choco list --local-only }
