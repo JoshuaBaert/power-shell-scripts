@@ -36,3 +36,5 @@ Remove-Variable prefix
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
 
+# This can be used to change the prompt
+function prompt { return & $GitPromptScriptBlock }
