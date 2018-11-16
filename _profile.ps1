@@ -2,10 +2,10 @@
 Import-Module $scriptsDir\local.ps1
 
 # Import Extra Modules 
-if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\colorsEtc.ps1 }
+if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\configs\colorsEtc.ps1 }
 if (Test-Path 'C:\tools\posh-git\src\posh-git.psm1') {
     Import-Module C:\tools\posh-git\src\posh-git.psm1
-    Import-Module $scriptsDir\posh-git-config.ps1 
+    Import-Module $scriptsDir\configs\posh-git.ps1 
 
     # This can be used to change the prompt
     function prompt { return & $GitPromptScriptBlock }
@@ -21,7 +21,7 @@ if ($excludedDirs -contains $dir){
     Set-Location $preferedDir
 }
 
-Get-ChildItem "$scriptsDir" -Directory | ForEach-Object {
+Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
 
     if($_.Name -eq 'chocolatey'){ $prefix = 'ch' }
