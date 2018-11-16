@@ -3,7 +3,13 @@ Import-Module $scriptsDir\local.ps1
 
 # Import Extra Modules 
 if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\colorsEtc.ps1 }
-if ($GitPromptSettings) { Import-Module $scriptsDir\posh-git-config.ps1 }
+if (Test-Path 'C:\tools\posh-git\src\posh-git.psm1') {
+    Import-Module C:\tools\posh-git\src\posh-git.psm1
+    Import-Module $scriptsDir\posh-git-config.ps1 
+
+    # This can be used to change the prompt
+    function prompt { return & $GitPromptScriptBlock }
+}
 
 # Vars
 $test = 'Yep.. Working!'
@@ -35,6 +41,3 @@ Remove-Variable prefix
 
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
-
-# This can be used to change the prompt
-function prompt { return & $GitPromptScriptBlock }
