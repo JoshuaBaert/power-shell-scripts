@@ -3,6 +3,7 @@ Import-Module $scriptsDir\local.ps1
 
 # Import Extra Modules 
 if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\configs\colorsEtc.ps1 }
+if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\configs\window.ps1 }
 if (Test-Path 'C:\tools\posh-git\src\posh-git.psm1') {
     Import-Module C:\tools\posh-git\src\posh-git.psm1
     Import-Module $scriptsDir\configs\posh-git.ps1 
@@ -43,6 +44,6 @@ function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
 
 # Playing with C#
-$testSource = Get-Content -Path "$scriptsDir\console\test.cs"
-Add-Type -TypeDefinition "$testSource"
-$basicTest = New-Object BasicTest
+# $testSource = Get-Content -Path "$scriptsDir\console\test.cs"
+# Add-Type -TypeDefinition "$testSource"
+# $basicTest = New-Object BasicTest
