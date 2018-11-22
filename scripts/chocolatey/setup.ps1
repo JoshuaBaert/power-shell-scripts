@@ -1,11 +1,13 @@
-$packages = 'git',
+$packages = 
     '7zip',
-    'slack',
-    'vscode',
-    'nodejs',
     'cyberduck',
+    'git',
     'greenshot',
-    'jetbrainstoolbox'
+    'jetbrainstoolbox',
+    'micro',
+    'nodejs',
+    'slack',
+    'vscode'
 
 $list = choco list --local-only
 

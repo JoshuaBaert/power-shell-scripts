@@ -41,3 +41,8 @@ Remove-Variable prefix
 
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
+
+# Playing with C#
+# $testSource = Get-Content -Path "$scriptsDir\console\test.cs"
+# Add-Type -TypeDefinition "$testSource"
+# $basicTest = New-Object BasicTest
