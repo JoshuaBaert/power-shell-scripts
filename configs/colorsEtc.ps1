@@ -3,6 +3,19 @@
 # and setting with 
 # Set-PSReadlineOption
 
+$pshost = get-host
+$pswindow = $pshost.ui.rawui
+
+$newsize = $pswindow.buffersize
+$newsize.height = 9000
+$newsize.width = 140
+$pswindow.buffersize = $newsize
+
+$newsize = $pswindow.windowsize
+$newsize.height = 45
+$newsize.width = 140
+$pswindow.windowsize = $newsize
+
 $console = $host.ui.rawui
 
 $console.backgroundcolor = "Black"
