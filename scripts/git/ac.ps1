@@ -1,3 +1,7 @@
+param (
+    [switch] $noPush = $false
+)
+
 $commitMessage = $args[0]
 
 if(!$commitMessage) {
@@ -6,4 +10,6 @@ if(!$commitMessage) {
 
 git add .
 git commit -m "$commitMessage"
-git push
+if (!$noPush) {
+    git push
+}
