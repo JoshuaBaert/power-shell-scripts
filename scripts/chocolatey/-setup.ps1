@@ -9,6 +9,9 @@ $packages =
     'slack',
     'vscode'
 
+# Other usefull packages
+# fiddler
+
 $list = choco list --local-only
 
 # Write-Host -Separator `n $list
