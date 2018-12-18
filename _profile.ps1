@@ -1,7 +1,10 @@
 # Config Vars
 Import-Module $scriptsDir\local.ps1
 
-# Import Extra Modules 
+# Helpers 
+Import-Module $scriptsDir\helpers.ps1
+
+# Import Extra Modules
 if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\configs\colorsEtc.ps1 }
 if (Test-Path 'C:\tools\posh-git\src\posh-git.psm1') {
     Import-Module C:\tools\posh-git\src\posh-git.psm1
