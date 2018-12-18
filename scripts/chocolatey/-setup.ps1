@@ -6,6 +6,7 @@ $packages =
     'jetbrainstoolbox',
     'micro',
     'nodejs',
+    'postman',
     'slack',
     'vscode'
 
