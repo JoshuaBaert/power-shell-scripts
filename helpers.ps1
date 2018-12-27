@@ -1,4 +1,4 @@
 
 function touch($fileName) {
-    echo $null >> $fileName
+   New-Item -ItemType file $fileName
 }
