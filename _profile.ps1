@@ -24,6 +24,11 @@ if ($excludedDirs -contains $dir){
     Set-Location $preferedDir
 }
 
+# Setup Aliases
+
+New-Alias "cs-install" "$scriptsDir\computer-setup\install.ps1"
+New-Alias "cs-startup" "$scriptsDir\computer-setup\startup.ps1"
+
 Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
 
