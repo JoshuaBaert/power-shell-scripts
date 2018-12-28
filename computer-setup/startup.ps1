@@ -8,6 +8,7 @@ Running Startup
 $timestamp
 
 "@
+git status
 Write-Host $location
 Write-Host $PSScriptRoot
 
