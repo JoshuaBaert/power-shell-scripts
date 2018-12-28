@@ -1,13 +1,13 @@
 $timestamp = Get-Date -Format g
+$location = Split-Path -Path $PSScriptRoot -Parent
+$message = git status
+
 Write-Host @"
 
 Running Startup
 $timestamp
 
 "@
-
-$location = Split-Path -Path $PSScriptRoot -Parent
-$message = git status
 
 Set-Location  $location
 
