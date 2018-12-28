@@ -1,6 +1,4 @@
 $timestamp = Get-Date -Format g
-$location = Split-Path -Path $PSScriptRoot -Parent
-$message = git status
 
 Write-Host @"
 
@@ -8,18 +6,15 @@ Running Startup
 $timestamp
 
 "@
-git status
-Write-Host $location
-Write-Host $PSScriptRoot
 
+
+$location = Split-Path -Path $PSScriptRoot -Parent
 Set-Location  $location
-$currentLocation = Get-Location
 
-Write-Host $currentLocation
+$message = git status
 
 if($message -like '*nothing to commit, working tree clean*') {
     git pull
 } else {
     Write-Host 'Currently not clean branch'
-    Write-Host $message
 }
