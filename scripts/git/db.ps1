@@ -1,3 +1,7 @@
+param (
+    [switch] $noRemote = $false
+)
+
 $branchName = $args[0]
 
 if(!$branchName) {
@@ -5,6 +9,8 @@ if(!$branchName) {
 }
 
 if($branchName -ne '') {
-    git push --delete origin $branchName
+    if(!$noRemote) {
+        git push --delete origin $branchName
+    }
     git branch -d $branchName
 }
