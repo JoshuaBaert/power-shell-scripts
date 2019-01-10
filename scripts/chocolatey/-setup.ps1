@@ -7,6 +7,7 @@ $packages =
     'micro',
     'nodejs',
     'postman',
+    'screentogif',
     'slack',
     'vscode'
 
