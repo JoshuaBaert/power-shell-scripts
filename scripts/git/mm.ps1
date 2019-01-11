@@ -12,9 +12,8 @@ if($message -like '*nothing to commit, working tree clean*') {
 
     $status = git status
     if($status -like '*Your branch is ahead of*' -And $status -like '*Your branch is ahead of*') {
-        Write-Host 'Pushing the merge up'
-
         if(!$noPush) {
+            Write-Host 'Pushing the merge up'
             git push
         }
 
