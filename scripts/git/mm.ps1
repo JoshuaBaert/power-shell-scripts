@@ -1,3 +1,7 @@
+param (
+    [switch] $noPush = $false
+)
+
 $message = git status
 
 if($message -like '*nothing to commit, working tree clean*') {    
@@ -9,7 +13,10 @@ if($message -like '*nothing to commit, working tree clean*') {
     $status = git status
     if($status -like '*Your branch is ahead of*' -And $status -like '*Your branch is ahead of*') {
         Write-Host 'Pushing the merge up'
-        git push
+
+        if(!$noPush) {
+            git push
+        }
 
         if($mergeMessage -imatch 'package\.json\s*\|\s*\d*' ){
             Write-Host 'Installing new packages'
