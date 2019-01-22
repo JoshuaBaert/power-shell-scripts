@@ -1,5 +1,6 @@
 param (
-    [switch] $noPush = $false
+    [switch] $noPush = $false,
+    [switch] $noInstall = $false
 )
 
 $message = git status
@@ -17,7 +18,7 @@ if($message -like '*nothing to commit, working tree clean*') {
             git push
         }
 
-        if($mergeMessage -imatch 'package\.json\s*\|\s*\d*' ){
+        if($mergeMessage -imatch 'package\.json\s*\|\s*\d*' -and !$noInstall ){
             Write-Host 'Installing new packages'
             npm install
         }
