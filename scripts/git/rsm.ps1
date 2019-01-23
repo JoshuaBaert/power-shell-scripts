@@ -1,7 +1,10 @@
 $commitMessage = $args[0]
+$status = git status
 
 if ($commitMessage -eq $null) {
     Write-Warning 'You need to pass a commit message'
+} elseif ($message -like '*nothing to commit, working tree clean*') {
+    Write-Error 'Not working on a clean branch'
 } else {
     Write-Warning "Have you already merged Master? (y or n)"
 
