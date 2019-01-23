@@ -12,5 +12,5 @@ if($branchName -ne '') {
     if(!$noRemote) {
         git push --delete origin $branchName
     }
-    git branch -d $branchName
+    git branch -D $branchName
 }
