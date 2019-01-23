@@ -33,6 +33,7 @@ Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
 
     if($_.Name -eq 'chocolatey'){ $prefix = 'ch' }
+    if($_.Name -eq 'computer-setup'){ $prefix = 'cs' }
 
     Get-ChildItem $_.FullName -Filter *.ps1 | Foreach-Object {
         if ($_ -notlike '_profile.ps1') {
