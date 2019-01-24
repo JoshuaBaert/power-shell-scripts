@@ -6,7 +6,7 @@ if ($commitMessage -eq $null) {
 } elseif ($message -like '*nothing to commit, working tree clean*') {
     Write-Error 'Not working on a clean branch'
 } else {
-    Write-Warning "Have you already merged Master? (y or n)"
+    Write-Warning "Have you already merged Master? (Y or N)"
 
     $keyOption = 'Y','N'
     while ($keyOption -notcontains $keyPress.Character) {
