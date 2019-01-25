@@ -8,7 +8,7 @@ if(!$commitMessage) {
     $commitMessage = Read-Host -Prompt 'Add Commit Message'
 }
 
-git add .
+git add -A
 git commit -m "$commitMessage"
 if (!$noPush) {
     git push
