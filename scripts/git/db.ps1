@@ -1,5 +1,5 @@
 param (
-    [switch] $noRemote = $false,
+    [switch] $remote = $false,
     [switch] $force = $false
 )
 
@@ -10,7 +10,7 @@ if(!$branchName) {
 }
 
 if($branchName -ne '') {
-    if(!$noRemote) {
+    if($remote) {
         git push --delete origin $branchName
     }
     if($force) {
