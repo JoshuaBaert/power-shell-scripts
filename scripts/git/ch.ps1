@@ -1,9 +1,18 @@
+param (
+    [switch] $pull = $false
+)
+
 $branchName = $args[0]
 $branches = git branch
 
-if($branches -like "*$branchName*") {
+function checkout {
     git checkout $args
+    if($pull) { git pull }
+}
+
+if($branches -like "*$branchName*") {
+    checkout $args
 } else {
     git fetch
-    git checkout $args
+    checkout $args
 }
