@@ -1,10 +1,10 @@
 $packages = 
     '7zip',
-    'cyberduck',
     'git',
     'greenshot',
     'jetbrainstoolbox',
     'micro',
+    'mountain-duck',
     'nodejs',
     'postman',
     'screentogif',
