@@ -7,7 +7,11 @@ $branches = git branch
 
 function checkout {
     git checkout $args
-    if($pull) { git pull }
+    if($branchName -like "*master*" -or $branchName -like "*dev*"){
+        git pull
+    } else {
+        if($pull) { git pull }
+    }
 }
 
 if($branches -like "*$branchName*") {
