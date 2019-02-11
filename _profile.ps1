@@ -28,6 +28,7 @@ if ($excludedDirs -contains $dir){
 
 New-Alias "cs-install" "$scriptsDir\computer-setup\install.ps1"
 New-Alias "cs-startup" "$scriptsDir\computer-setup\startup.ps1"
+New-Alias 'ps-exe' "$scriptsDir\ps2exe.ps1"
 
 Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
@@ -55,3 +56,10 @@ function cdc { Set-Location $preferedDir }
 # $testSource = Get-Content -Path "$scriptsDir\console\test.cs"
 # Add-Type -TypeDefinition "$testSource"
 # $basicTest = New-Object BasicTest
+
+
+function message () {
+    $name = read-host "Enter computer name "
+    $msg = read-host "Enter your message "
+    Invoke-WmiMethod -Path Win32_Process -Name Create -ArgumentList "msg * $msg" -ComputerName $name
+}
