@@ -56,10 +56,3 @@ function cdc { Set-Location $preferedDir }
 # $testSource = Get-Content -Path "$scriptsDir\console\test.cs"
 # Add-Type -TypeDefinition "$testSource"
 # $basicTest = New-Object BasicTest
-
-
-function message () {
-    $name = read-host "Enter computer name "
-    $msg = read-host "Enter your message "
-    Invoke-WmiMethod -Path Win32_Process -Name Create -ArgumentList "msg * $msg" -ComputerName $name
-}
