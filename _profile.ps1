@@ -1,13 +1,13 @@
 # Config Vars
-if (Test-Path "$scriptsDir\local.ps1") { Import-Module "$scriptsDir\local.ps1" }
-if (Test-Path "$scriptsDir\test.ps1") { New-Alias test "$scriptsDir\test.ps1" }
+if (Test-Path "$PSScriptRoot\local.ps1") { Import-Module "$PSScriptRoot\local.ps1" }
+if (Test-Path "$PSScriptRoot\test.ps1") { New-Alias test "$PSScriptRoot\test.ps1" }
 
 # Import configs
-Get-ChildItem "$scriptsDir\configs" -Filter *.ps1 | Foreach-Object {
+Get-ChildItem "$PSScriptRoot\configs" -Filter *.ps1 | Foreach-Object {
     Import-Module $_.FullName
 }
 
-Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
+Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
 
     # Some need special prefixes
