@@ -10,6 +10,7 @@ Get-ChildItem "$scriptsDir\configs" -Filter *.ps1 | Foreach-Object {
 Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
 
+    # Some need special prefixes
     switch ($_.Name) {
         'helpers' { $prefix = '' }
         'chocolatey' { $prefix = 'ch' }
