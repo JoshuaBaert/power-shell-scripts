@@ -9,6 +9,6 @@ $scriptsDir = 'C:\path\to\this\dir' # <--- Important!!
 Import-Module $scriptsDir\_profile.ps1
 ```
 
-### Config.ps1 Vars Declared 
+### local.ps1 Required Declared Vars 
 * $excludedDirs
 * $preferedDir
