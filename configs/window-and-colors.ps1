@@ -4,21 +4,18 @@
 # Set-PSReadlineOption
 
 if (Get-Module -ListAvailable -Name PSReadLine) {
-    $pshost = get-host
-    $pswindow = $pshost.ui.rawui
+    $console = $host.ui.rawui
 
-    $newsize = $pswindow.buffersize
+    $newsize = $console.buffersize
     if( $newsize.width -le 140) {
         $newsize.width = 140
-        $pswindow.buffersize = $newsize
+        $console.buffersize = $newsize
     }
 
-    $newsize = $pswindow.windowsize
+    $newsize = $console.windowsize
     $newsize.height = 45
     $newsize.width = 140
-    $pswindow.windowsize = $newsize
-
-    $console = $host.ui.rawui
+    $console.windowsize = $newsize
 
     $console.backgroundcolor = "Black"
     $console.foregroundcolor = "White"
@@ -60,5 +57,8 @@ if (Get-Module -ListAvailable -Name PSReadLine) {
     Set-PSReadlineOption -TokenKind Member -BackgroundColor Black
 
     Set-PSReadlineOption -BellStyle None
+
+    Remove-Variable newsize
+    Remove-Variable console
 }
 
