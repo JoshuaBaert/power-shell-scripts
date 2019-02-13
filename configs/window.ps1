@@ -1,17 +1,20 @@
-$pshost = get-host
+# TODO Ned to figure out when we can and can't do this
+if($false) {
+    $pshost = get-host
 
-$pswindow = $pshost.ui.rawui
+    $pswindow = $pshost.ui.rawui
 
-$newsize = $pswindow.buffersize
-$newsize.height = 3000
-$newsize.width = 140
-$pswindow.buffersize = $newsize
+    $newsize = $pswindow.buffersize
+    $newsize.height = 3000
+    $newsize.width = 140
+    $pswindow.buffersize = $newsize
 
-$newsize = $pswindow.windowsize
-$newsize.height = 50
-$newsize.width = 140
-$pswindow.windowsize = $newsize
+    $newsize = $pswindow.windowsize
+    $newsize.height = 50
+    $newsize.width = 140
+    $pswindow.windowsize = $newsize
 
-Remove-Variable $pshost
-Remove-Variable $pswindow
-Remove-Variable $newsize
+    Remove-Variable $pshost
+    Remove-Variable $pswindow
+    Remove-Variable $newsize
+}

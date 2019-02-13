@@ -1,24 +1,10 @@
 # Config Vars
-Import-Module $scriptsDir\local.ps1
+if (Test-Path "$scriptsDir\local.ps1") { Import-Module "$scriptsDir\local.ps1" }
+if (Test-Path "$scriptsDir\test.ps1") { New-Alias test "$scriptsDir\test.ps1" }
 
-# Import Extra Modules
-if (Get-Module -ListAvailable -Name PSReadLine) { Import-Module $scriptsDir\configs\colorsEtc.ps1 }
-if (Test-Path 'C:\tools\posh-git\src\posh-git.psm1') {
-    Import-Module C:\tools\posh-git\src\posh-git.psm1
-    Import-Module $scriptsDir\configs\posh-git.ps1
-
-    # This can be used to change the prompt
-    function prompt { return & $GitPromptScriptBlock }
-}
-
-# Vars
-$test = 'Yep.. Working!'
-
-# Check working director and maybe redirect
-$dir = Get-Location
-
-if ($excludedDirs -contains $dir){
-    Set-Location $preferedDir
+# Import configs
+Get-ChildItem "$scriptsDir\configs" -Filter *.ps1 | Foreach-Object {
+    Import-Module $_.FullName
 }
 
 Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
@@ -43,6 +29,14 @@ Get-ChildItem "$scriptsDir\scripts" -Directory | ForEach-Object {
 
 Remove-Variable alias
 Remove-Variable prefix
+
+# Directory Work
+
+$dir = Get-Location
+
+if ($excludedDirs -contains $dir){
+    Set-Location $preferedDir
+}
 
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
