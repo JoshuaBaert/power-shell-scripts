@@ -1,3 +1,4 @@
 local.ps1
-.idea
+.idea/
 test.ps1
+logs/
