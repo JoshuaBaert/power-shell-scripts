@@ -10,8 +10,8 @@ $versions = $versions | Sort-Object -Descending
 $version = $versions[0]
 
 if ($args) {
-    Start-Process "$appdir\$version\bin\webstorm64.exe" $args
+#     Start-Process "$appdir\$version\bin\webstorm.bat" $args
 } else {
-    $currenLocation = Get-Location
-    Start-Process "$appdir\$version\bin\webstorm64.exe" $currenLocation
+    # $currenLocation = Get-Location
+    # Start-Process "$appdir\$version\bin\webstorm.bat" $currenLocation
 }
