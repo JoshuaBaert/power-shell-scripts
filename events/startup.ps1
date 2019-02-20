@@ -1,4 +1,6 @@
 
+Import-Module "$PSScriptRoot\helpers.ps1" -ArgumentList 'startup' -Scope Local
+
 $timestamp = Get-Date -Format g
 $location = Split-Path -Path $PSScriptRoot -Parent
 

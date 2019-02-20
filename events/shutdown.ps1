@@ -1,4 +1,6 @@
 
+#Import-Module "$PSScriptRoot\helpers.ps1"
+
 $timestamp = Get-Date -Format g
 $location = Split-Path -Path $PSScriptRoot -Parent
 
@@ -16,4 +18,5 @@ Running Shutdown
 $timestamp
 
 "@
+
 
