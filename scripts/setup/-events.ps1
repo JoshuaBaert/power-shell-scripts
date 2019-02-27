@@ -1,3 +1,4 @@
+# To understand better go here http://www.hexacorn.com/blog/2017/01/07/beyond-good-ol-run-key-part-52/
 
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if(!($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))){
