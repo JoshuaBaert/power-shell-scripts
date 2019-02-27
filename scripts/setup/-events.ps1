@@ -1,4 +1,5 @@
 # To understand better go here http://www.hexacorn.com/blog/2017/01/07/beyond-good-ol-run-key-part-52/
+# and here https://superuser.com/questions/1325592/programmatically-create-machine-startup-script-in-local-group-policy-script-exe
 
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if(!($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))){
