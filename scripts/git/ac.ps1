@@ -13,3 +13,4 @@ git commit -m "$commitMessage"
 if (!$noPush) {
     git push
 }
+

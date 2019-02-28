@@ -20,3 +20,4 @@ if($branches -like "*$branchName*") {
     git fetch
     checkout $args
 }
+
