@@ -1,14 +1,5 @@
 
-#Import-Module "$PSScriptRoot\helpers.ps1"
-
-$timestamp = Get-Date -Format g
-$location = Split-Path -Path $PSScriptRoot -Parent
-
-if (!(Test-Path "$location\logs")) { md "$location\logs" }
-
-function logOut () {
-    $args | Out-File -Append "$location\logs\shutdown-log.txt"
-}
+. $PSScriptRoot\helpers.ps1 'shutdown'
 
 Set-Location $location
 
@@ -19,4 +10,4 @@ $timestamp
 
 "@
 
-
+& $PSScriptRoot\configs.down.ps1 $logBlock
