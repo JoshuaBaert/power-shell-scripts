@@ -1,4 +1,4 @@
-$packages = 
+$packages =
     '7zip',
     'git',
     'greenshot',
@@ -21,9 +21,9 @@ $list = choco list --local-only
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
 if($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){
     forEach ($p in $packages) {
-        if($list -like "*$p*") {
+        if ($list -like "*$p*") {
             Write-Host 'skipping' $p
-        }else {
+        } else {
             Write-Host 'installing' $p
             choco install --confirm $p
         }
