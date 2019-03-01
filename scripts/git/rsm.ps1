@@ -19,7 +19,7 @@ if ($commitMessage -eq $null) {
         Default { $canSquash = $false }
     }
 
-    if($canSquash) {
+    if ($canSquash) {
         Write-Warning "Squashing Branch!! & Pushing forcefully"
         git reset --soft master
         git commit -m $commitMessage

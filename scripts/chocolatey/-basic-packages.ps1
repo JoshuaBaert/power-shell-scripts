@@ -19,7 +19,7 @@ $list = choco list --local-only
 # Write-Host -Separator `n $list
 
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-if($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){
+if ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)){
     forEach ($p in $packages) {
         if ($list -like "*$p*") {
             Write-Host 'skipping' $p

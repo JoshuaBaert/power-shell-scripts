@@ -20,7 +20,7 @@ $timestamp
 "@
 
 $message = git status
-if($message -like '*nothing to commit, working tree clean*') {
+if ($message -like '*nothing to commit, working tree clean*') {
     git pull
     logOut 'pulled'
 } else {

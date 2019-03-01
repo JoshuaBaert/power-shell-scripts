@@ -22,7 +22,7 @@ Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
         if ($_ -notlike '_profile.ps1') {
             $alias = $_ -replace ".ps1",""
             New-Alias "$prefix$alias" $_.FullName
-        } elseif($_ -like '_profile.ps1') {
+        } elseif ($_ -like '_profile.ps1') {
             Import-Module $_.FullName
         }
     }

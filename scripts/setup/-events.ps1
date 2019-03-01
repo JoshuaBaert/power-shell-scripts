@@ -2,7 +2,7 @@
 # and here https://superuser.com/questions/1325592/programmatically-create-machine-startup-script-in-local-group-policy-script-exe
 
 $currentPrincipal = New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())
-if(!($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))){
+if (!($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator))){
     msg * 'Rerun as Admin'
     exit
 }
@@ -15,7 +15,7 @@ $startScriptsRoot = 'C:\Windows\System32\GroupPolicy\User\Scripts'
 
 
 $iniPath = "$startScriptsRoot\psscripts.ini"
-if((Test-Path $iniPath)) { Remove-Item $iniPath -Force }
+if ((Test-Path $iniPath)) { Remove-Item $iniPath -Force }
 
 $psIni = @"
 [ScriptsConfig]
@@ -43,11 +43,11 @@ $hLogonScriptPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Group Polic
 $hLogonStatePathRoot = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\$sid\Scripts\Logon\0"
 $hLogonStatePath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\$sid\Scripts\Logon\0\0"
 
-if(!(Test-Path $hLogonScriptPathRoot)) { New-Item $hLogonScriptPathRoot }
-if(!(Test-Path $hLogonStatePathRoot )) { New-Item $hLogonStatePathRoot }
+if (!(Test-Path $hLogonScriptPathRoot)) { New-Item $hLogonScriptPathRoot }
+if (!(Test-Path $hLogonStatePathRoot )) { New-Item $hLogonStatePathRoot }
 
-if((Test-Path $hLogonScriptPath)) { Remove-Item $hLogonScriptPath -Force }
-if((Test-Path $hLogonStatePath)) { Remove-Item $hLogonStatePath -Force }
+if ((Test-Path $hLogonScriptPath)) { Remove-Item $hLogonScriptPath -Force }
+if ((Test-Path $hLogonStatePath)) { Remove-Item $hLogonStatePath -Force }
 
 New-Item -Path $hLogonScriptPathRoot -Name '0'
 New-ItemProperty -Path $hLogonScriptPath -Name "Script" -Value startup.ps1  -PropertyType "String"
@@ -66,11 +66,11 @@ $hLogoffScriptPath = "HKCU:\Software\Microsoft\Windows\CurrentVersion\Group Poli
 $hLogoffStatePathRoot = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\$sid\Scripts\Logoff\0"
 $hLogoffStatePath = "HKLM:\SOFTWARE\Microsoft\Windows\CurrentVersion\Group Policy\State\$sid\Scripts\Logoff\0\0"
 
-if(!(Test-Path $hLogoffScriptPathRoot)) { New-Item $hLogoffScriptPathRoot }
-if(!(Test-Path $hLogoffStatePathRoot )) { New-Item $hLogoffStatePathRoot }
+if (!(Test-Path $hLogoffScriptPathRoot)) { New-Item $hLogoffScriptPathRoot }
+if (!(Test-Path $hLogoffStatePathRoot )) { New-Item $hLogoffStatePathRoot }
 
-if((Test-Path $hLogoffScriptPath)) { Remove-Item $hLogoffScriptPath -Force }
-if((Test-Path $hLogoffStatePath)) { Remove-Item $hLogoffStatePath -Force }
+if ((Test-Path $hLogoffScriptPath)) { Remove-Item $hLogoffScriptPath -Force }
+if ((Test-Path $hLogoffStatePath)) { Remove-Item $hLogoffStatePath -Force }
 
 New-Item -Path $hLogoffScriptPathRoot -Name '0'
 New-ItemProperty -Path $hLogoffScriptPath -Name "Script" -Value shutdown.ps1  -PropertyType "String"

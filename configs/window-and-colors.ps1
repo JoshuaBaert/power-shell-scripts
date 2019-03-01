@@ -7,7 +7,7 @@ if (Get-Module -ListAvailable -Name PSReadLine) {
     $console = $host.ui.rawui
 
     $newsize = $console.buffersize
-    if( $newsize.width -le 140) {
+    if ( $newsize.width -le 140) {
         $newsize.width = 140
         $console.buffersize = $newsize
     }

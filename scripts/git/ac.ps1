@@ -4,7 +4,7 @@ param (
 
 $commitMessage = $args[0]
 
-if(!$commitMessage) {
+if (!$commitMessage) {
     $commitMessage = Read-Host -Prompt 'Add Commit Message'
 }
 

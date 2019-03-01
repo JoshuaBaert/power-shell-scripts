@@ -4,7 +4,7 @@ $repoUrl = 'https://github.com/dahlbyk/posh-git.git'
 
 
 function profile {
-    
+
 }
 
 # Execution
@@ -15,7 +15,7 @@ if (!(Test-Path 'C:\tools')) {
 
 Set-Location C:\tools
 
-if(!(Test-Path 'C:\tools\posh-git')) {
+if (!(Test-Path 'C:\tools\posh-git')) {
     # install post-git
     git clone $repoUrl
 
