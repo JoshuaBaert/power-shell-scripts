@@ -4,7 +4,7 @@ function log($text) {
     & $logBlock $text
 }
 
-$configDir = 'C:\tools\config'
+$configDir = 'C:\tools\configs'
 
 <#
  # Jetbrains
