@@ -4,13 +4,15 @@ function log($text) {
     & $logBlock $text
 }
 
+log 'Starting configs.'
+
 $configDir = 'C:\tools\configs'
 
 <#
  # Jetbrains
  #>
 
-$jetConDir = "$configDir\jetbrains"
+$jetFigsDir = "$configDir\jetbrains"
 $versions = @()
 
 Get-ChildItem $env:USERPROFILE -Directory -Filter '*Webstorm*' | ForEach-Object {
@@ -20,18 +22,18 @@ Get-ChildItem $env:USERPROFILE -Directory -Filter '*Webstorm*' | ForEach-Object 
 $versions = $versions | Sort-Object -Descending
 $version = $versions[0]
 
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\codestyles\josh-code-style.xml" "$jetConDir\josh-code-style.xml"
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\colors\josh-theme.icls" "$jetConDir\josh-theme.icls"
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\win.keymaps\josh-keymap.xml" "$jetConDir\josh-keymap.xml"
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\codestyles\josh-code-style.xml" "$jetFigsDir\josh-code-style.xml"
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\colors\josh-theme.icls" "$jetFigsDir\josh-theme.icls"
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\win.keymaps\josh-keymap.xml" "$jetFigsDir\josh-keymap.xml"
 
 <#
  # VS Code
  #>
 
-$vsConDir = "$configDir\vs-code"
+$vsFigsDir = "$configDir\vs-code"
 
-Copy-Item "$env:APPDATA\Code\User\settings.json" "$vsConDir\settings.json"
-Copy-Item "$env:APPDATA\Code\User\keybindings.json" "$vsConDir\keybindings.json"
+Copy-Item "$env:APPDATA\Code\User\settings.json" "$vsFigsDir\settings.json"
+Copy-Item "$env:APPDATA\Code\User\keybindings.json" "$vsFigsDir\keybindings.json"
 
 <#
  # Save
@@ -47,9 +49,9 @@ if (!($message -like '*nothing to commit, working tree clean*')) {
     git add .
     git commit -m "configs changed $timestamp"
     git push
-    log 'updated configs'
+    log 'Updated configs.'
 } else {
-    log 'no configs to update'
+    log 'No configs to update.'
 }
 
 Set-Location $returnDir
