@@ -10,4 +10,4 @@ $timestamp
 
 "@
 
-& $PSScriptRoot\configs.down.ps1 $logBlock
+& "$PSScriptRoot\configs.down.ps1" $logBlock
