@@ -9,6 +9,9 @@ $configDir = 'C:\tools\configs'
 $returnDir = Get-Location
 Set-Location $configDir
 
+git pull
+log 'Pulled from git.'
+
 <#
  # Jetbrains
  #>
@@ -36,5 +39,5 @@ $vsConDir = "$configDir\vs-code"
 Copy-Item "$vsConDir\settings.json" "$env:APPDATA\Code\User\settings.json"
 Copy-Item "$vsConDir\keybindings.json" "$env:APPDATA\Code\User\keybindings.json"
 
-log 'finished'
+log 'Coppied configs.'
 cd $returnDir
