@@ -13,8 +13,8 @@ $timestamp
 $message = git status
 if ($message -like '*nothing to commit, working tree clean*') {
     git pull
-    logOut 'pulled'
+    logOut 'Updated script repo.'
 } else {
-    logOut 'Currently not clean branch'
+    logOut 'Script repo currently not clean did not pull.'
 }
 
