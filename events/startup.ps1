@@ -17,3 +17,4 @@ if ($message -like '*nothing to commit, working tree clean*') {
 } else {
     logOut 'Currently not clean branch'
 }
+
