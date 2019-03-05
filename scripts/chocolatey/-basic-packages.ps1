@@ -3,12 +3,12 @@ $packages =
     'git',
     'greenshot',
     'jetbrainstoolbox',
-    'micro',
     'mountain-duck',
     'nodejs',
     'postman',
     'screentogif',
     'slack',
+    'vim',
     'vscode'
 
 # Other usefull packages
@@ -35,3 +35,4 @@ if ($currentPrincipal.IsInRole([Security.Principal.WindowsBuiltInRole]::Administ
 $win10packages = 'wsl-ubuntu-1804'
 # TODO Install windows 10 packages??
 # (Get-WMIobject Win32_Operatingsystem).version << Gets version number
+
