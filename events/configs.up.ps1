@@ -10,7 +10,7 @@ $returnDir = Get-Location
 Set-Location $configDir
 
 git pull
-log 'Pulled from git.'
+log 'Pulled configs.'
 
 <#
  # Jetbrains
