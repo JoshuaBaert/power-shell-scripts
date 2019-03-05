@@ -41,3 +41,4 @@ if ($excludedDirs -contains $dir){
 
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
+
