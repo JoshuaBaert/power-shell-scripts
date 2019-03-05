@@ -13,7 +13,7 @@ $startScriptsRoot = 'C:\Windows\System32\GroupPolicy\User\Scripts'
 "& $scriptsRootDir\events\startup.ps1" | Out-File "$startScriptsRoot\Logon\startup.ps1"
 "& $scriptsRootDir\events\shutdown.ps1" | Out-File "$startScriptsRoot\Logoff\shutdown.ps1"
 
-
+<#
 $iniPath = "$startScriptsRoot\psscripts.ini"
 if ((Test-Path $iniPath)) { Remove-Item $iniPath -Force }
 
@@ -31,7 +31,7 @@ EndExecutePSFirst=true
 
 $psIni | Out-File $iniPath -Encoding unicode -Force
 $iniFile = Get-Item $iniPath -force
-$iniFile.attributes="Hidden"
+$iniFile.attributes = "Hidden"
 
 $userInfo = whoami /user
 $sidRow = $userInfo -match 'S-\d-\d-\d{2}-\d{10}-\d{10}-\d{10}-\d{6}'
@@ -83,3 +83,4 @@ New-ItemProperty -Path $hLogoffStatePath -Name "Script" -Value shutdown.ps1  -Pr
 New-ItemProperty -Path $hLogoffStatePath -Name "Parameters" -Value $null  -PropertyType "String"
 New-ItemProperty -Path $hLogoffStatePath -Name "IsPowershell" -Value 1 -PropertyType "DWord"
 New-ItemProperty -Path $hLogoffStatePath -Name ExecTime -Value $exeTime
+#>
