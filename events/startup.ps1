@@ -10,6 +10,12 @@ $timestamp
 
 "@
 
+if (!([Console]::NumberLock)) {
+    $wsh = New-Object -ComObject WScript.Shell
+    $wsh.SendKeys('{NUMLOCK}')
+    logOut 'Turned on numlock.'
+}
+
 $message = git status
 if ($message -like '*nothing to commit, working tree clean*') {
     git pull
