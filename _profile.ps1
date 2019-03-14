@@ -28,9 +28,6 @@ Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
     }
 }
 
-Remove-Variable alias
-Remove-Variable prefix
-
 # Directory Work
 
 $dir = Get-Location
@@ -41,4 +38,8 @@ if ($excludedDirs -contains $dir){
 
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
+
+Remove-Variable alias
+Remove-Variable prefix
+Remove-Variable dir
 
