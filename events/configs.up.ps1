@@ -46,6 +46,15 @@ Copy-Item "$vsConDir\keybindings.json" "$env:APPDATA\Code\User\keybindings.json"
 $viConDir = "$configDir\vim"
 
 Copy-Item "$viConDir\_vimrc" "$env:USERPROFILE\_vimrc"
+Copy-Item "$viConDir\vimfiles" "$env:USERPROFILE\vimfiles"
+
+<#
+ # Powershell shortcut
+ #>
+
+$psConDir = "$configDir\powershell"
+
+Copy-Item "$psConDir\Windows PowerShell.lnk" "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 
 log 'Coppied configs.'
 cd $returnDir
