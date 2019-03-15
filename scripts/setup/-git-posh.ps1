@@ -16,3 +16,4 @@ if (!(Test-Path 'C:\tools\posh-git')) {
 }
 
 Set-Location $startingDir
+
