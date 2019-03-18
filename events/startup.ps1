@@ -6,7 +6,7 @@ Set-Location $location
 logOut @"
 
 
-Running Startup     $timestamp
+Running Startup             $timestamp
 "@
 
 if (!([Console]::NumberLock)) {

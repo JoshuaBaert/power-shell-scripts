@@ -6,7 +6,7 @@ Set-Location $location
 logOut @"
 
 
-Running Shutdown        $timestamp
+Running Shutdown            $timestamp
 "@
 
 & "$PSScriptRoot\configs.down.ps1" $logBlock
