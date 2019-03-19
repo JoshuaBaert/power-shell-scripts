@@ -64,3 +64,4 @@ if (!($message -like '*nothing to commit, working tree clean*')) {
 }
 
 Set-Location $returnDir
+
