@@ -42,6 +42,7 @@ Copy-Item "$env:APPDATA\Code\User\keybindings.json" "$vsFigsDir\keybindings.json
 $viConDir = "$configDir\vim"
 
 Copy-Item "$env:USERPROFILE\_vimrc" "$viConDir\_vimrc"
+Remove-Item -Recurse "$viConDir\vimfiles"
 Copy-Item -Recurse -Force "$env:USERPROFILE\vimfiles" "$viConDir\"
 
 <#
