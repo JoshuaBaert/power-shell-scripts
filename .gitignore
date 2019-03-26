@@ -2,5 +2,3 @@ local.ps1
 .idea/
 test.ps1
 logs/
-
-*.test.ps1
