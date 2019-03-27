@@ -24,6 +24,13 @@ if ($message -like '*nothing to commit, working tree clean*') {
 
 & "$PSScriptRoot\configs.up.ps1" $logBlock
 
+# Starting hotkeys
+if (Test-Path 'C:\tools\config\hotkeys.ahk') { Start-Process -Wait 'C:\tools\config\hotkeys.ahk' }
+else { logout 'No hotkeys file.' }
+
+if (Test-Path 'C:\tools\config\local.ahk') { Start-Process -Wait 'C:\tools\config\hotkeys.ahk' }
+else { logout 'No local hotkeys file.' }
+
 logOut @"
 
 "@
