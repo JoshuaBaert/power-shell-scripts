@@ -5,8 +5,8 @@ Set-Location $location
 
 logOut @"
 
+Running Shutdown            $timestamp
 
-Running Startup             $timestamp
 "@
 
 if (!([Console]::NumberLock)) {
@@ -17,11 +17,13 @@ if (!([Console]::NumberLock)) {
 
 $message = git status
 if ($message -like '*nothing to commit, working tree clean*') {
-    git pull
-    logOut 'Updated script repo.'
+    logOut (git pull)
 } else {
     logOut 'Script repo currently not clean did not pull.'
 }
 
 & "$PSScriptRoot\configs.up.ps1" $logBlock
 
+logOut @"
+
+"@

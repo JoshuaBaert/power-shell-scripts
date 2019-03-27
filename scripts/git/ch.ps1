@@ -1,5 +1,6 @@
 param (
-    [switch] $pull = $false
+    [switch] $pull = $false,
+    [switch] $noPull = $false
 )
 
 $branchName = $args[0]
@@ -7,7 +8,7 @@ $branches = git branch
 
 function checkout {
     git checkout $args
-    if ($branchName -like "*master*" -or $branchName -like "*dev*"){
+    if (($branchName -like "*master*" -or $branchName -like "*dev*") -and !$noPull ) {
         git pull
     } elseif ($pull) {
         git pull
