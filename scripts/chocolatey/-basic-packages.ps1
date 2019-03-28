@@ -1,5 +1,6 @@
 $packages =
     '7zip',
+    'autohotkey',
     'git',
     'greenshot',
     'jetbrainstoolbox',
