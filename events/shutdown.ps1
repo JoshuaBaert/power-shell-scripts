@@ -1,6 +1,8 @@
 
 . $PSScriptRoot\helpers.ps1 'shutdown'
 
+Start-Transcript -Append -Path "$location\logs\shutdown.txt"
+
 Set-Location $location
 
 logOut @"
@@ -15,3 +17,5 @@ Running Shutdown            $timestamp
 logOut @"
 
 "@
+
+Stop-Transcript

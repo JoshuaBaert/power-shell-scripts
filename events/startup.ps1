@@ -3,9 +3,11 @@
 
 Set-Location $location
 
+Start-Transcript -Append -Path "$location\logs\startup.txt"
+
 logOut @"
 
-Running Shutdown            $timestamp
+Running Startup             $timestamp
 
 "@
 
@@ -34,3 +36,5 @@ else { logout 'No local hotkeys file.' }
 logOut @"
 
 "@
+
+Stop-Transcript
