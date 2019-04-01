@@ -3,14 +3,14 @@ $packages =
     'autohotkey',
     'git',
     'greenshot',
-    'jetbrainstoolbox',
     'mountain-duck',
     'nodejs',
     'postman',
     'screentogif',
     'slack',
     'vim',
-    'vscode'
+    'vscode',
+    'webstorm'
 
 # Other usefull packages
 # fiddler
