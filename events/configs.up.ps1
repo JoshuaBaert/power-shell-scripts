@@ -16,19 +16,39 @@ log 'Pulled configs.'
  # Jetbrains
  #>
 
-$jetConDir = "$configDir\jetbrains"
-$versions = @()
+$jetConDir = "C:\tools\configs\jetbrains"
+@(
+'DataGrip',
+'Rider',
+'Pycharm',
+'Webstorm'
+) | ForEach-Object {
+    $versions = @()
+    $hasIde = $false
 
-Get-ChildItem $env:USERPROFILE -Directory -Filter '*Webstorm*' | ForEach-Object {
-    $versions += $_
+    $folders = Get-ChildItem $env:USERPROFILE -Directory -Filter "*$_*"
+
+    if ($folders.Length -gt 0) {
+        $folders | ForEach-Object {
+            $versions += $_
+        }
+
+        $versions = $versions | Sort-Object -Descending
+        $version = $versions[0]
+
+        write $version
+
+        if (Test-Path "$env:USERPROFILE\$version\config\jba_config") {
+            Copy-Item "$jetConDir\josh-code-style.xml" "$env:USERPROFILE\$version\config\jba_config\codestyles\josh-code-style.xml"
+            Copy-Item "$jetConDir\josh-theme.icls" "$env:USERPROFILE\$version\config\jba_config\colors\josh-theme.icls"
+            Copy-Item "$jetConDir\josh-keymap.xml" "$env:USERPROFILE\$version\config\jba_config\win.keymaps\josh-keymap.xml"
+        } else {
+            Copy-Item "$jetConDir\josh-code-style.xml" "$env:USERPROFILE\$version\config\codestyles\josh-code-style.xml"
+            Copy-Item "$jetConDir\josh-theme.icls" "$env:USERPROFILE\$version\config\colors\josh-theme.icls"
+            Copy-Item "$jetConDir\josh-keymap.xml" "$env:USERPROFILE\$version\config\keymaps\josh-keymap.xml"
+        }
+    }
 }
-
-$versions = $versions | Sort-Object -Descending
-$version = $versions[0]
-
-Copy-Item "$jetConDir\josh-code-style.xml" "$env:USERPROFILE\$version\config\jba_config\codestyles\josh-code-style.xml"
-Copy-Item "$jetConDir\josh-theme.icls" "$env:USERPROFILE\$version\config\jba_config\colors\josh-theme.icls"
-Copy-Item "$jetConDir\josh-keymap.xml" "$env:USERPROFILE\$version\config\jba_config\win.keymaps\josh-keymap.xml"
 
 <#
  # VS Code
