@@ -3,13 +3,20 @@ param (
     [switch] $noInstall = $false
 )
 
+$branchName = $args[0]
+
+if ($branchName -eq $null) {
+    Write-Warning 'No branchName'
+    exit
+}
+
 $message = git status
 
 if ($message -like '*nothing to commit, working tree clean*') {
-    git checkout master
+    git checkout $branchName
     git pull
     git checkout -
-    $mergeMessage = git merge master
+    $mergeMessage = git merge $branchName
 
     $status = git status
     if ($status -like '*Your branch is ahead of*' -And $status -like '*Your branch is ahead of*') {
