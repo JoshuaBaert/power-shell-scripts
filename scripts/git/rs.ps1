@@ -1,3 +1,12 @@
+param (
+    [string] $branchName
+)
+
+if ($branchName -eq $null) {
+    Write-Warning 'No branchName'
+    exit
+}
+
 $commitMessage = $args[0]
 $status = git status
 
@@ -6,7 +15,7 @@ if ($commitMessage -eq $null) {
 } elseif ($message -like '*nothing to commit, working tree clean*') {
     Write-Error 'Not working on a clean branch'
 } else {
-    Write-Warning "Have you already merged Master? (Y or N)"
+    Write-Warning "Have you already merged $branchName (Y or N)"
 
     $keyOption = 'Y','N'
     while ($keyOption -notcontains $keyPress.Character) {
@@ -21,7 +30,7 @@ if ($commitMessage -eq $null) {
 
     if ($canSquash) {
         Write-Warning "Squashing Branch!! & Pushing forcefully"
-        git reset --soft master
+        git reset --soft $branchName
         git commit -m $commitMessage
         git push -f
     } else {
