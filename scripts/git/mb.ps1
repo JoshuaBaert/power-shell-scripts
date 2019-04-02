@@ -1,8 +1,9 @@
 param (
-    [string] $branchName,
     [switch] $noPush = $false,
     [switch] $noInstall = $false
 )
+
+$branchName = $args[0]
 
 if ($branchName -eq $null) {
     Write-Warning 'No branchName'
