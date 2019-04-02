@@ -7,6 +7,9 @@ Get-ChildItem "$PSScriptRoot\configs" -Filter *.ps1 | Foreach-Object {
     Import-Module $_.FullName
 }
 
+# Remove overwritten aliases
+Remove-Item alias:\gm -Force
+
 Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
     $prefix = $_.Name -replace "(\w).*", '$1'
 
