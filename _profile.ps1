@@ -41,6 +41,9 @@ if ($excludedDirs -contains $dir){
 
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
+function cdw { Set-Location "$preferedDir\work" }
+function cdp { Set-Location "$preferedDir\personal" }
+function cdl { Set-Location "$preferedDir\learning" }
 
 Remove-Variable alias
 Remove-Variable prefix
