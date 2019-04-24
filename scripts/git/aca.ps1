@@ -1,5 +1,5 @@
 
 git add .
-git commit --amend -C HEAD
+git commit --amend --no-edit -C HEAD
 git push -f
 

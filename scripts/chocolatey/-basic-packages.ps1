@@ -3,6 +3,7 @@ $packages =
     'autohotkey',
     'git',
     'greenshot',
+    'keepass',
     'mountain-duck',
     'nodejs',
     'postman',
