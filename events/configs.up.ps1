@@ -18,10 +18,10 @@ log 'Pulled configs.'
 
 $jetConDir = "C:\tools\configs\jetbrains"
 @(
-'DataGrip',
-'Rider',
-'Pycharm',
-'Webstorm'
+    'DataGrip',
+    'Rider',
+    'Pycharm',
+    'Webstorm'
 ) | ForEach-Object {
     $versions = @()
     $hasIde = $false
@@ -38,15 +38,40 @@ $jetConDir = "C:\tools\configs\jetbrains"
 
         write $version
 
+        $currentConfigOutput
+
         if (Test-Path "$env:USERPROFILE\$version\config\jba_config") {
-            Copy-Item "$jetConDir\josh-code-style.xml" "$env:USERPROFILE\$version\config\jba_config\codestyles\josh-code-style.xml"
-            Copy-Item "$jetConDir\josh-theme.icls" "$env:USERPROFILE\$version\config\jba_config\colors\josh-theme.icls"
-            Copy-Item "$jetConDir\josh-keymap.xml" "$env:USERPROFILE\$version\config\jba_config\win.keymaps\josh-keymap.xml"
+            $currentConfigOutput = "$env:USERPROFILE\$version\config\jba_config"
+
+            if (!(Test-Path "$currentConfigOutput\win.keymaps\")) {
+                mkdir "$currentConfigOutput\win.keymaps\"
+            }
+            Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\win.keymaps\josh-keymap.xml"
         } else {
-            Copy-Item "$jetConDir\josh-code-style.xml" "$env:USERPROFILE\$version\config\codestyles\josh-code-style.xml"
-            Copy-Item "$jetConDir\josh-theme.icls" "$env:USERPROFILE\$version\config\colors\josh-theme.icls"
-            Copy-Item "$jetConDir\josh-keymap.xml" "$env:USERPROFILE\$version\config\keymaps\josh-keymap.xml"
+            $currentConfigOutput = "$env:USERPROFILE\$version\config"
+            
+            if (!(Test-Path "$currentConfigOutput\keymaps\")) {
+                mkdir "$currentConfigOutput\keymaps\"
+            }
+            Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\keymaps\josh-keymap.xml"
         }
+
+        write "$jetConDir\josh-theme.icls"
+        write "$currentConfigOutput\colors\josh-theme.icls"
+
+        if (!(Test-Path "$currentConfigOutput\codestyles")) {
+            mkdir "$currentConfigOutput\codestyles\"
+        }
+        Copy-Item -Force "$jetConDir\josh-code-style.xml" "$currentConfigOutput\codestyles\josh-code-style.xml"
+
+        if (!(Test-Path "$currentConfigOutput\colors")) {
+            mkdir "$currentConfigOutput\colors\"
+        }
+        Copy-Item -Force "$jetConDir\josh-theme.icls" "$currentConfigOutput\colors\josh-theme.icls"
+
+        Copy-Item "$jetConDir\editor.codeinsight.xml" "$currentConfigOutput\editor.codeinsight.xml"
+        Copy-Item "$jetConDir\editor.xml" "$currentConfigOutput\editor.xml"
+        Copy-Item "$jetConDir\ide.general.xml" "$currentConfigOutput\ide.general.xml"
     }
 }
 

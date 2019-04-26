@@ -26,6 +26,10 @@ Copy-Item "$env:USERPROFILE\$version\config\jba_config\codestyles\josh-code-styl
 Copy-Item "$env:USERPROFILE\$version\config\jba_config\colors\josh-theme.icls" "$jetFigsDir\josh-theme.icls"
 Copy-Item "$env:USERPROFILE\$version\config\jba_config\win.keymaps\josh-keymap.xml" "$jetFigsDir\josh-keymap.xml"
 
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\editor.codeinsight.xml" "$jetFigsDir\editor.codeinsight.xml"
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\editor.xml" "$jetFigsDir\editor.xml"
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\ide.general.xml" "$jetFigsDir\ide.general.xml"
+
 <#
  # VS Code
  #>
