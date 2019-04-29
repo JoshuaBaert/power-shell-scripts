@@ -26,8 +26,22 @@ if ($branches -like "*$branchName*") {
         git fetch
         checkout $args
     } else {
-        write 'Creating new branch'
-        checkout -b $args
+        Write-Warning "No Remote.... Want to create $branchName (Y or N)"
+
+        $keyOption = 'Y','N'
+        while ($keyOption -notcontains $keyPress.Character) {
+            $keyPress = $host.UI.RawUI.ReadKey("NoEcho,IncludeKeyDown")
+        }
+
+        switch($keyPress.Character) {
+            Y { $canCreate = $true }
+            N { $canCreate = $false }
+            Default { $canCreate = $false }
+        }
+
+        if ($canCreate) {
+            checkout -b $args
+            git push --set-upstream origin $branchName
+        }
     }
 }
-
