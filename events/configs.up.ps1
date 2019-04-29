@@ -56,9 +56,6 @@ $jetConDir = "C:\tools\configs\jetbrains"
             Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\keymaps\josh-keymap.xml"
         }
 
-        write "$jetConDir\josh-theme.icls"
-        write "$currentConfigOutput\colors\josh-theme.icls"
-
         if (!(Test-Path "$currentConfigOutput\codestyles")) {
             mkdir "$currentConfigOutput\codestyles\"
         }
