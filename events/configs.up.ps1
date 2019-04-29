@@ -66,9 +66,9 @@ $jetConDir = "C:\tools\configs\jetbrains"
         }
         Copy-Item -Force "$jetConDir\josh-theme.icls" "$currentConfigOutput\colors\josh-theme.icls"
 
-        Copy-Item "$jetConDir\editor.codeinsight.xml" "$currentConfigOutput\editor.codeinsight.xml"
-        Copy-Item "$jetConDir\editor.xml" "$currentConfigOutput\editor.xml"
-        Copy-Item "$jetConDir\ide.general.xml" "$currentConfigOutput\ide.general.xml"
+        Copy-Item -Force "$jetConDir\editor.codeinsight.xml" "$currentConfigOutput\editor.codeinsight.xml"
+        Copy-Item -Force "$jetConDir\editor.xml" "$currentConfigOutput\editor.xml"
+        Copy-Item -Force "$jetConDir\ide.general.xml" "$currentConfigOutput\ide.general.xml"
     }
 }
 
