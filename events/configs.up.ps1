@@ -49,7 +49,7 @@ $jetConDir = "C:\tools\configs\jetbrains"
             Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\win.keymaps\josh-keymap.xml"
         } else {
             $currentConfigOutput = "$env:USERPROFILE\$version\config"
-            
+
             if (!(Test-Path "$currentConfigOutput\keymaps\")) {
                 mkdir "$currentConfigOutput\keymaps\"
             }
