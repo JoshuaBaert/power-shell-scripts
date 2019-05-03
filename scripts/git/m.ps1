@@ -14,7 +14,7 @@ if ($branchName -eq $null) {
 $message = git status
 
 if ($message -like '*nothing to commit, working tree clean*') {
-    if ($noPull) {
+    if (!$noPull) {
         git checkout $branchName
         git pull
         git checkout -

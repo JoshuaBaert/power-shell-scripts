@@ -1,19 +1,26 @@
-param (
-    [string] $branchName
-)
+
+
+$branchName = $args[0]
+$commitMessage = $args[1]
+$status = git status
 
 if ($branchName -eq $null) {
-    Write-Warning 'No branchName'
+    Write-Warning 'You need a branch name as first argument'
     exit
 }
 
-$commitMessage = $args[0]
-$status = git status
-
 if ($commitMessage -eq $null) {
-    Write-Warning 'You need to pass a commit message'
-} elseif ($message -like '*nothing to commit, working tree clean*') {
+    $commitMessage = Read-Host -Prompt 'Commit message?' 
+}
+
+if ([string]::IsNullOrEmpty($commitMessage)) {
+    Write-Warning 'Actually you need a commit message'
+    exit
+}
+
+if ($message -like '*nothing to commit, working tree clean*') {
     Write-Error 'Not working on a clean branch'
+    exit
 } else {
     Write-Warning "Have you already merged $branchName (Y or N)"
 
