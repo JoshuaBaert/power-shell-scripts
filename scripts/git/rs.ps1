@@ -18,7 +18,7 @@ if ([string]::IsNullOrEmpty($commitMessage)) {
     exit
 }
 
-if ($message -like '*nothing to commit, working tree clean*') {
+if ($status -like '*nothing to commit, working tree clean*') {
     Write-Error 'Not working on a clean branch'
     exit
 } else {
