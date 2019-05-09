@@ -15,6 +15,7 @@ if ($message -like '*nothing to commit, working tree clean*') {
     exit
 }
 
+git fetch
 git merge origin/$branchName
 $status = git status
 
