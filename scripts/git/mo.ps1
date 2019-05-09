@@ -1,5 +1,5 @@
 param (
-    [switch] $noPush = $false,
+    [switch] $noPush = $false
 )
 
 $branchName = $args[0]
