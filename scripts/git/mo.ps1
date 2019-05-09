@@ -1,6 +1,5 @@
 param (
     [switch] $noPush = $false,
-    [switch] $noInstall = $false
 )
 
 $branchName = $args[0]
@@ -16,18 +15,12 @@ if ($message -like '*nothing to commit, working tree clean*') {
     exit
 }
 
-$mergeMessage = git merge origin/$branchName
-Write-Host $mergeMessage
+git merge origin/$branchName
 $status = git status
 
 if ($status -like '*Your branch is ahead of*' -And $status -like '*Your branch is ahead of*') {
     if (!$noPush) {
         Write-Host 'Pushing the merge up'
         git push
-    }
-
-    if ($mergeMessage -imatch 'package\.json\s*\|\s*\d*' -and !$noInstall ){
-        Write-Host 'Installing new packages'
-        npm install
     }
 }
