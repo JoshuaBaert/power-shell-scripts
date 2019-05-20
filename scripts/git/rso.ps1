@@ -37,7 +37,7 @@ switch ($keyPress.Character) {
 
 if ($canSquash) {
     Write-Warning "Squashing Branch!! & Pushing forcefully"
-    git reset --soft $branchName
+    git reset --soft origin/$branchName
     git commit -m $commitMessage
     git push -f
 } else {
