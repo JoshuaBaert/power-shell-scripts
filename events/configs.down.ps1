@@ -24,6 +24,10 @@ Copy-Item "$env:USERPROFILE\$version\config\jba_config\editor.codeinsight.xml" "
 Copy-Item "$env:USERPROFILE\$version\config\jba_config\editor.xml" "$jetFigsDir\editor.xml"
 Copy-Item "$env:USERPROFILE\$version\config\jba_config\ide.general.xml" "$jetFigsDir\ide.general.xml"
 
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\templates\Angular.xml" "$jetFigsDir\templates\Angular.xml"
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\templates\JavaScript Testing.xml" "$jetFigsDir\templates\JavaScript-Testing.xml"
+Copy-Item "$env:USERPROFILE\$version\config\jba_config\templates\JavaScript.xml" "$jetFigsDir\templates\JavaScript.xml"
+
 $ides = @(
 'DataGrip',
 'Rider',

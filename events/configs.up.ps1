@@ -57,6 +57,11 @@ foreach ($ide in $ides) {
         Copy-Item -Force "$jetConDir\editor.codeinsight.xml" "$currentConfigOutput\editor.codeinsight.xml"
         Copy-Item -Force "$jetConDir\editor.xml" "$currentConfigOutput\editor.xml"
         Copy-Item -Force "$jetConDir\ide.general.xml" "$currentConfigOutput\ide.general.xml"
+
+        if (!(Test-Path "$currentConfigOutput\templates")) { mkdir "$currentConfigOutput\templates\" }
+        Copy-Item -Force "$jetConDir\templates\Angular.xml" "$currentConfigOutput\templates\Angular.xml"
+        Copy-Item -Force "$jetConDir\templates\JavaScript-Testing.xml" "$currentConfigOutput\templates\JavaScript Testing.xml"
+        Copy-Item -Force "$jetConDir\templates\Angular.xml" "$currentConfigOutput\templates\JavaScript.xml"
     }
 }
 
