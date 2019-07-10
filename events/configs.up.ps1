@@ -61,7 +61,7 @@ foreach ($ide in $ides) {
         if (!(Test-Path "$currentConfigOutput\templates")) { mkdir "$currentConfigOutput\templates\" }
         Copy-Item -Force "$jetConDir\templates\Angular.xml" "$currentConfigOutput\templates\Angular.xml"
         Copy-Item -Force "$jetConDir\templates\JavaScript-Testing.xml" "$currentConfigOutput\templates\JavaScript Testing.xml"
-        Copy-Item -Force "$jetConDir\templates\Angular.xml" "$currentConfigOutput\templates\JavaScript.xml"
+        Copy-Item -Force "$jetConDir\templates\JavaScript.xml" "$currentConfigOutput\templates\JavaScript.xml"
     }
 }
 
