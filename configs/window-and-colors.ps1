@@ -34,27 +34,31 @@ if (Get-Module -ListAvailable -Name PSReadLine) {
     $colors.WarningBackgroundColor = "Black"
     $colors.ErrorBackgroundColor = "Black"
 
-    Set-PSReadlineOption -TokenKind Comment -ForegroundColor DarkGreen
-    Set-PSReadlineOption -TokenKind Keyword -ForegroundColor Green
-    Set-PSReadlineOption -TokenKind String -ForegroundColor Gray
-    Set-PSReadlineOption -TokenKind Operator -ForegroundColor Red
-    Set-PSReadlineOption -TokenKind Variable -ForegroundColor Cyan
-    Set-PSReadlineOption -TokenKind Command -ForegroundColor Green
-    Set-PSReadlineOption -TokenKind Parameter -ForegroundColor Cyan
-    Set-PSReadlineOption -TokenKind Type -ForegroundColor Cyan
-    Set-PSReadlineOption -TokenKind Number -ForegroundColor White
-    Set-PSReadlineOption -TokenKind Member -ForegroundColor White
+    Set-PSReadLineOption -Colors @{
+        Comment = [ConsoleColor]::DarkGreen
+        Keyword = [ConsoleColor]::Green
+        String = [ConsoleColor]::Gray
+        Operator = [ConsoleColor]::Red
+        Variable = [ConsoleColor]::Cyan
+        Command = [ConsoleColor]::Green
+        Parameter = [ConsoleColor]::Cyan
+        Type = [ConsoleColor]::Cyan
+        Number = [ConsoleColor]::White
+        Member = [ConsoleColor]::White
+    }
 
-    Set-PSReadlineOption -TokenKind Comment -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Keyword -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind String -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Operator -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Variable -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Command -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Parameter -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Type -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Number -BackgroundColor Black
-    Set-PSReadlineOption -TokenKind Member -BackgroundColor Black
+#    Set-PSReadLineOption -BackgroundColor -Colors @{
+#        Comment = [ConsoleColor]::Black
+#        Keyword = [ConsoleColor]::Black
+#        String = [ConsoleColor]::Black
+#        Operator = [ConsoleColor]::Black
+#        Variable = [ConsoleColor]::Black
+#        Command = [ConsoleColor]::Black
+#        Parameter = [ConsoleColor]::Black
+#        Type = [ConsoleColor]::Black
+#        Number = [ConsoleColor]::Black
+#        Member = [ConsoleColor]::Black
+#    }
 
     Set-PSReadlineOption -BellStyle None
 
