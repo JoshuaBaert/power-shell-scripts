@@ -6,15 +6,17 @@
 if (Get-Module -ListAvailable -Name PSReadLine) {
     $console = $host.ui.rawui
 
+    $desiredWidth = 170
+
     $newsize = $console.buffersize
-    if ( $newsize.width -le 140) {
-        $newsize.width = 140
+    if ( $newsize.width -le $desiredWidth) {
+        $newsize.width = $desiredWidth
         $console.buffersize = $newsize
     }
 
     $newsize = $console.windowsize
     $newsize.height = 45
-    $newsize.width = 140
+    $newsize.width = $desiredWidth
     $console.windowsize = $newsize
 
     $console.backgroundcolor = "Black"
