@@ -36,6 +36,20 @@ if (Get-Module -ListAvailable -Name PSReadLine) {
     $colors.WarningBackgroundColor = "Black"
     $colors.ErrorBackgroundColor = "Black"
 
+
+#    Set-PSReadLineOption -Colors @{
+#        Comment = "`e[32;40m"
+#        Keyword = "`e[92;40m"
+#        String = "`e[37;40m"
+#        Operator = "`e[91;40m"
+#        Variable = "`e[96;40m"
+#        Command = "`e[92;40m"
+#        Parameter = "`e[96;40m"
+#        Type = "`e[96;40m"
+#        Number = "`e[97;40m"
+#        Member = "`e[97;40m"
+#    }
+
     Set-PSReadLineOption -Colors @{
         Comment = [ConsoleColor]::DarkGreen
         Keyword = [ConsoleColor]::Green

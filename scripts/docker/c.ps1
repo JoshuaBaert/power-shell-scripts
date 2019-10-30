@@ -7,7 +7,10 @@ param (
 )
 
 [System.Collections.ArrayList]$ments = '', ''
-foreach ($arg in $args) { $ments.Add($arg) }
+foreach ($arg in $args) {
+    # Add returns the index This is to capture index to not display on console
+    $boo = $ments.Add($arg)
+}
 while ($ments -contains '') { $ments.Remove('') }
 
 if ($ments[0] -eq 'up') {
