@@ -1,0 +1,1 @@
+docker exe -it $args[0] /bin/sh
