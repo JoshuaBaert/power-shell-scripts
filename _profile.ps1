@@ -11,7 +11,7 @@ Get-ChildItem "$PSScriptRoot\configs" -Filter *.ps1 | Foreach-Object {
 Remove-Item alias:\gmo -Force
 
 Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
-    $prefix = $_.Name -replace "(\w).*", '$1'
+    $prefix = $_.Name.SubString(0,1)
 
     # Some need special prefixes
     switch ($_.Name) {
@@ -23,9 +23,10 @@ Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
 
     Get-ChildItem $_.FullName -Filter *.ps1 | Foreach-Object {
         if ($_ -notlike '_profile.ps1') {
-            $alias = $_ -replace ".ps1",""
-            New-Alias "$prefix$alias" $_.FullName
-        } elseif ($_ -like '_profile.ps1') {
+            $alias = $_.Name -replace ".ps1",""
+            New-Alias -Name "$prefix$alias" $_.FullName
+        } 
+        if ($_.Name -like '_profile.ps1') {
             Import-Module $_.FullName
         }
     }

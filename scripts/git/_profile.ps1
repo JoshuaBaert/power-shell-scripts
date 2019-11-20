@@ -6,7 +6,7 @@ function gls {
     git branch
 }
 function gs {
-    git status
+    git status $args
 }
 function grh {
     git reset --hard $args

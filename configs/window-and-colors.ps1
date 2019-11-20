@@ -3,7 +3,7 @@
 # and setting with
 # Set-PSReadlineOption
 
-if (Get-Module -ListAvailable -Name PSReadLine) {
+if ($IsWindows) {
     $console = $host.ui.rawui
 
     $desiredWidth = 170
