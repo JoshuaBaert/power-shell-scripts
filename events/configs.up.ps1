@@ -18,6 +18,7 @@ log 'Pulled configs.'
 
 $jetConDir = "C:\tools\configs\jetbrains"
 $ides = @(
+'CLion'
 'DataGrip',
 'IntelliJIdea',
 'Pycharm',
