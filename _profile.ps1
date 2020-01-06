@@ -36,7 +36,9 @@ Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
 
 $dir = Get-Location
 
-Set-Location $preferedDir
+if ($excludedDirs -contains $dir){
+    Set-Location $preferedDir
+}
 
 function cdps { Set-Location $scriptsDir }
 function cdc { Set-Location $preferedDir }
