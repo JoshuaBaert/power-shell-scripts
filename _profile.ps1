@@ -1,8 +1,4 @@
-if($host.version.major -eq 5) {
-    $IsWindows = $true
-}
-
-echo $IsWindows
+if($host.version.major -eq 5) { $IsWindows = $true }
 
 # Config Vars
 if (Test-Path "$PSScriptRoot\local.ps1") { Import-Module "$PSScriptRoot\local.ps1" }
