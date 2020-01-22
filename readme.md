@@ -11,4 +11,4 @@ Import-Module $scriptsDir\_profile.ps1
 
 ### local.ps1 Required Declared Vars 
 * $excludedDirs
-* $preferedDir
+* $preferredDir

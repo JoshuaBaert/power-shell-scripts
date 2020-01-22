@@ -1,3 +1,9 @@
+if($host.version.major -eq 5) {
+    $IsWindows = $true
+}
+
+echo $IsWindows
+
 # Config Vars
 if (Test-Path "$PSScriptRoot\local.ps1") { Import-Module "$PSScriptRoot\local.ps1" }
 if (Test-Path "$PSScriptRoot\test.ps1") { New-Alias test "$PSScriptRoot\test.ps1" }
@@ -37,14 +43,14 @@ Get-ChildItem "$PSScriptRoot\scripts" -Directory | ForEach-Object {
 $dir = Get-Location
 
 if ($excludedDirs -contains $dir){
-    Set-Location $preferedDir
+    Set-Location $preferredDir
 }
 
 function cdps { Set-Location $scriptsDir }
-function cdc { Set-Location $preferedDir }
-function cdw { Set-Location "$preferedDir\work" }
-function cdp { Set-Location "$preferedDir\personal" }
-function cdl { Set-Location "$preferedDir\learning" }
+function cdc { Set-Location $preferredDir }
+function cdw { Set-Location "$preferredDir\work" }
+function cdp { Set-Location "$preferredDir\personal" }
+function cdl { Set-Location "$preferredDir\learning" }
 
 Remove-Variable alias
 Remove-Variable prefix
