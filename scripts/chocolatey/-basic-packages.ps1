@@ -4,14 +4,13 @@ $packages =
     'git',
     'greenshot',
     'keepass',
+    'micro',
     'mountain-duck',
     'nodejs',
     'postman',
     'screentogif',
     'slack',
-    'vim',
-    'vscode',
-    'webstorm'
+    'vscode'
 
 # Other usefull packages
 # fiddler

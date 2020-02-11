@@ -75,6 +75,16 @@ $vsConDir = "$configDir\vs-code"
 
 Copy-Item "$vsConDir\settings.json" "$env:APPDATA\Code\User\settings.json"
 Copy-Item "$vsConDir\keybindings.json" "$env:APPDATA\Code\User\keybindings.json"
+}
+
+<#
+ # Terminal
+ #>
+
+$termFigsDir = "$configDir\win-terminal"
+if(Test-Path "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState") {
+    Copy-Item "$termFigsDir\settings.json" "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" 
+}
 
 <#
  # Vim

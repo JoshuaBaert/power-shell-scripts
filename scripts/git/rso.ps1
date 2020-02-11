@@ -1,3 +1,7 @@
+param (
+    [switch] $stage = $false
+)
+
 $branchName = $args[0]
 $commitMessage = $args[1]
 $status = git status
@@ -38,8 +42,13 @@ switch ($keyPress.Character) {
 if ($canSquash) {
     Write-Warning "Squashing Branch!! & Pushing forcefully"
     git reset --soft origin/$branchName
-    git commit -m $commitMessage
-    git push -f
+
+    if(!$stage) {
+        git commit -m $commitMessage
+        git push -f
+    } else {
+        Write-Output $commitMessage
+    }
 } else {
     Write-Warning "Did NOT squash your branch"
 }
