@@ -15,7 +15,7 @@ if ($IsWindows) {
     }
 
     $newsize = $console.windowsize
-    $newsize.height = 45
+    # $newsize.height = 45
     $newsize.width = $desiredWidth
     $console.windowsize = $newsize
 
