@@ -27,7 +27,7 @@ if ($message -like '*nothing to commit, working tree clean*') {
 & "$PSScriptRoot\configs.up.ps1" $logBlock
 
 # Starting hotkeys
-if (Test-Path 'C:\tools\configs\hotkeys.ahk') { Invoke-Item -Path 'C:\tools\configs\hotkeys.ahk' }
+if (Test-Path 'C:\tools\configs\start.ahk') { Invoke-Item -Path 'C:\tools\configs\start.ahk' }
 else { logout 'No hotkeys file.' }
 
 if (Test-Path 'C:\tools\configs\local.ahk') { Invoke-Item -Path 'C:\tools\configs\local.ahk' }
