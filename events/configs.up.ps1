@@ -75,7 +75,6 @@ $vsConDir = "$configDir\vs-code"
 
 Copy-Item "$vsConDir\settings.json" "$env:APPDATA\Code\User\settings.json"
 Copy-Item "$vsConDir\keybindings.json" "$env:APPDATA\Code\User\keybindings.json"
-}
 
 <#
  # Terminal
