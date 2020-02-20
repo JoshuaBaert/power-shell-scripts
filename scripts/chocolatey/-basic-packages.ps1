@@ -10,7 +10,8 @@ $packages =
     'postman',
     'screentogif',
     'slack',
-    'vscode'
+    'vscode',
+    'yarn'
 
 # Other usefull packages
 # fiddler

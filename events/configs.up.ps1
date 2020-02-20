@@ -82,7 +82,7 @@ Copy-Item "$vsConDir\keybindings.json" "$env:APPDATA\Code\User\keybindings.json"
 
 $termFigsDir = "$configDir\win-terminal"
 if(Test-Path "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState") {
-    Copy-Item "$termFigsDir\settings.json" "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" 
+    Copy-Item "$termFigsDir\profiles.json" "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json" 
 }
 
 <#
