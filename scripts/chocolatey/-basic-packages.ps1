@@ -15,6 +15,7 @@ $packages =
 
 # Other usefull packages
 # fiddler
+# keepass
 
 $list = choco list --local-only
 

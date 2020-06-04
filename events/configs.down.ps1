@@ -67,7 +67,7 @@ Copy-Item "$env:APPDATA\Code\User\keybindings.json" "$vsFigsDir\keybindings.json
 
 $termFigsDir = "$configDir\win-terminal"
 
-Copy-Item "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\profiles.json" "$termFigsDir\profiles.json"
+Copy-Item "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" "$termFigsDir\settings.json"
 
 <#
  # Vim
