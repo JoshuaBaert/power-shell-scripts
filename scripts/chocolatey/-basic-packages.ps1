@@ -1,6 +1,7 @@
 $packages =
     '7zip',
     'autohotkey',
+    'gifcam',
     'git',
     'greenshot',
     'keepass',
@@ -8,7 +9,6 @@ $packages =
     'mountain-duck',
     'nodejs',
     'postman',
-    'screentogif',
     'slack',
     'vscode',
     'yarn'
