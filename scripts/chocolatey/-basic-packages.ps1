@@ -1,10 +1,10 @@
 $packages =
     '7zip',
     'autohotkey',
-    'gifcam',
     'git',
     'greenshot',
     'keepass',
+    'livecap',
     'micro',
     'mountain-duck',
     'nodejs',
