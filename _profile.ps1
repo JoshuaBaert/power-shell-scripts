@@ -47,6 +47,7 @@ function cdc { Set-Location $preferredDir }
 function cdw { Set-Location "$preferredDir\work" }
 function cdp { Set-Location "$preferredDir\personal" }
 function cdl { Set-Location "$preferredDir\learning" }
+function cdt { Set-Location "$preferredDir\test" }
 
 Remove-Variable alias
 Remove-Variable prefix
