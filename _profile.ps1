@@ -4,6 +4,9 @@ if($host.version.major -eq 5) { $IsWindows = $true }
 if (Test-Path "$PSScriptRoot\local.ps1") { Import-Module "$PSScriptRoot\local.ps1" }
 if (Test-Path "$PSScriptRoot\test.ps1") { New-Alias test "$PSScriptRoot\test.ps1" }
 
+# Local executables
+$Env:Path += ";$PSScriptRoot\local"
+
 # Import configs
 Get-ChildItem "$PSScriptRoot\configs" -Filter *.ps1 | Foreach-Object {
     Import-Module $_.FullName
