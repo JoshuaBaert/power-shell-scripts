@@ -9,6 +9,6 @@ while ($true) {
   $WShell.sendkeys("{SCROLLLOCK}")
   Start-Sleep -Milliseconds 100
   $WShell.sendkeys("{SCROLLLOCK}")
-  Start-Sleep -Seconds 300
+  Start-Sleep -Seconds (3 * 60)
   echo "Flipping ScrollLock"
 }
