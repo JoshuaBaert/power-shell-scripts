@@ -3,15 +3,13 @@ $packages =
     'autohotkey',
     'git',
     'greenshot',
-    'keepass',
-    'livecap',
+    'gnvm',
     'micro',
     'mountain-duck',
-    'nodejs',
     'postman',
+    'screentogif',
     'slack',
-    'vscode',
-    'yarn'
+    'vscode'
 
 # Other usefull packages
 # fiddler
