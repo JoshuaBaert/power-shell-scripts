@@ -26,10 +26,12 @@ $ides = @(
 'Webstorm'
 )
 
+$intelliJSaveFolder = "C:\Users\joshua.baert\AppData\Roaming\JetBrains";
+
 foreach ($ide in $ides) {
     $versions = @()
 
-    $folders = Get-ChildItem $env:USERPROFILE -Directory -Filter "*$ide*" | Sort-Object -Descending
+    $folders = Get-ChildItem $intelliJSaveFolder -Directory -Filter "*$ide*" | Sort-Object -Descending
 
     if ($folders.Length -gt 0) {
         $version = $folders[0]
@@ -38,13 +40,13 @@ foreach ($ide in $ides) {
 
         $currentConfigOutput
 
-        if (Test-Path "$env:USERPROFILE\$version\config\jba_config") {
-            $currentConfigOutput = "$env:USERPROFILE\$version\config\jba_config"
+        if (Test-Path "$intelliJSaveFolder\$version\jba_config") {
+            $currentConfigOutput = "$intelliJSaveFolder\$version\jba_config"
 
             if (!(Test-Path "$currentConfigOutput\win.keymaps\")) { mkdir "$currentConfigOutput\win.keymaps\" }
             Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\win.keymaps\josh-keymap.xml"
         } else {
-            $currentConfigOutput = "$env:USERPROFILE\$version\config"
+            $currentConfigOutput = "$intelliJSaveFolder\$version"
 
             if (!(Test-Path "$currentConfigOutput\keymaps\")) { mkdir "$currentConfigOutput\keymaps\" }
             Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\keymaps\josh-keymap.xml"

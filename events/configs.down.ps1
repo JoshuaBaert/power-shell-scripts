@@ -14,19 +14,25 @@ $configDir = 'C:\tools\configs'
 
 $jetFigsDir = "$configDir\jetbrains"
 
-$versions = Get-ChildItem $env:USERPROFILE -Directory -Filter '*Webstorm*' | Sort-Object -Descending
+$intelliJSaveFolder = "$env:APPDATA\JetBrains";
+
+$versions = Get-ChildItem $intelliJSaveFolder -Directory -Filter '*Webstorm*' | Sort-Object -Descending
 $version = $versions[0]
 
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\colors\josh-theme.icls" "$jetFigsDir\josh-theme.icls"
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\win.keymaps\josh-keymap.xml" "$jetFigsDir\josh-keymap.xml"
+Copy-Item "$intelliJSaveFolder\$version\colors\josh-theme.icls" "$jetFigsDir\josh-theme.icls"
+if (Test-Path "$intelliJSaveFolder\$version\win.keymaps\") { 
+    Copy-Item "$intelliJSaveFolder\$version\win.keymaps\josh-keymap.xml" "$jetFigsDir\josh-keymap.xml"
+} else {
+    Copy-Item "$intelliJSaveFolder\$version\keymaps\josh-keymap.xml" "$jetFigsDir\josh-keymap.xml"
+}
 
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\editor.codeinsight.xml" "$jetFigsDir\editor.codeinsight.xml"
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\editor.xml" "$jetFigsDir\editor.xml"
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\ide.general.xml" "$jetFigsDir\ide.general.xml"
+Copy-Item "$intelliJSaveFolder\$version\editor.codeinsight.xml" "$jetFigsDir\editor.codeinsight.xml"
+Copy-Item "$intelliJSaveFolder\$version\editor.xml" "$jetFigsDir\editor.xml"
+Copy-Item "$intelliJSaveFolder\$version\ide.general.xml" "$jetFigsDir\ide.general.xml"
 
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\templates\Angular.xml" "$jetFigsDir\templates\Angular.xml"
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\templates\JavaScript Testing.xml" "$jetFigsDir\templates\JavaScript-Testing.xml"
-Copy-Item "$env:USERPROFILE\$version\config\jba_config\templates\JavaScript.xml" "$jetFigsDir\templates\JavaScript.xml"
+Copy-Item "$intelliJSaveFolder\$version\templates\Angular.xml" "$jetFigsDir\templates\Angular.xml"
+Copy-Item "$intelliJSaveFolder\$version\templates\JavaScript Testing.xml" "$jetFigsDir\templates\JavaScript-Testing.xml"
+Copy-Item "$intelliJSaveFolder\$version\templates\JavaScript.xml" "$jetFigsDir\templates\JavaScript.xml"
 
 $ides = @(
 'DataGrip',
@@ -35,17 +41,17 @@ $ides = @(
 'Webstorm'
 )
 foreach ($ide in $ides) {
-    $ideVersions = Get-ChildItem $env:USERPROFILE -Directory -Filter "*$ide*" | Sort-Object -Descending
+    $ideVersions = Get-ChildItem $intelliJSaveFolder -Directory -Filter "*$ide*" | Sort-Object -Descending
     if ($ideVersions.Length -gt 0) {
         $ideVersion = $ideVersions[0]
 
         write $ideVersion
 
         $currentConfigOutput
-        if (Test-Path "$env:USERPROFILE\$ideVersion\config\jba_config") {
-            $currentConfigOutput = "$env:USERPROFILE\$ideVersion\config\jba_config"
+        if (Test-Path "$intelliJSaveFolder\$ideVersion\jba_config") {
+            $currentConfigOutput = "$intelliJSaveFolder\$ideVersion\jba_config"
         } else {
-            $currentConfigOutput = "$env:USERPROFILE\$ideVersion\config"
+            $currentConfigOutput = "$intelliJSaveFolder\$ideVersion"
         }
 
         Copy-Item "$currentConfigOutput\codestyles\josh-code-style.xml" "$jetFigsDir\$ide-josh-code-style.xml"
