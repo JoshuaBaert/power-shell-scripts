@@ -9,7 +9,8 @@ $packages =
     'postman',
     'screentogif',
     'slack',
-    'vscode'
+    'vscode',
+    'microsoft-windows-terminal'
 
 # Other usefull packages
 # fiddler
