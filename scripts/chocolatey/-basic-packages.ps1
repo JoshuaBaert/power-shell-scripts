@@ -6,7 +6,6 @@ $packages =
     'gnvm',
     'micro',
     'mountain-duck',
-    'notable',
     'postman',
     'screentogif',
     'slack',
