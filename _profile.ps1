@@ -12,6 +12,9 @@ Get-ChildItem "$PSScriptRoot\configs" -Filter *.ps1 | Foreach-Object {
     Import-Module $_.FullName
 }
 
+# add path for Custom executables here
+$env:Path += "; $PSScriptRoot\path"
+
 # Remove overwritten aliases
 Remove-Item alias:\gmo -Force
 
