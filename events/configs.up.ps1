@@ -26,7 +26,7 @@ $ides = @(
 'Webstorm'
 )
 
-$intelliJSaveFolder = "C:\Users\joshua.baert\AppData\Roaming\JetBrains";
+$intelliJSaveFolder = "$env:APPDATA\JetBrains";
 
 foreach ($ide in $ides) {
     $versions = @()
