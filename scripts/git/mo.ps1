@@ -1,5 +1,5 @@
 param (
-    [switch] $noPush = $false
+    [switch] $push = $false
 )
 
 $branchName = $args[0]
@@ -20,7 +20,7 @@ git merge origin/$branchName
 $status = git status
 
 if ($status -like '*Your branch is ahead of*' -And $status -like '*Your branch is ahead of*') {
-    if (!$noPush) {
+    if ($push) {
         Write-Host 'Pushing the merge up'
         git push
     }
