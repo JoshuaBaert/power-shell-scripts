@@ -58,4 +58,3 @@ function cdt { Set-Location "$preferredDir\test" }
 Remove-Variable alias
 Remove-Variable prefix
 Remove-Variable dir
-
