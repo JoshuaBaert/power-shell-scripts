@@ -1,5 +1,9 @@
+param (
+    [switch] $push = $true
+)
 
 git add -A
 git commit --amend --no-edit -C HEAD
-git push -f
-
+if($push) {
+    git push -f
+}
