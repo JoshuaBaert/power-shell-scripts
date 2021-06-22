@@ -1,5 +1,5 @@
 param (
-    [switch] $push = $true
+    [switch] $push = $false
 )
 
 $commitMessage = $args[0]
