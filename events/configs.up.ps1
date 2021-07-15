@@ -4,6 +4,12 @@ function log($text) {
     & $logBlock $text
 }
 
+function copy($from, $to) {
+    $toParent = Split-Path -Parent $to -Parent
+    if (!(Test-Path $toParent)) { mkdir $toParent }
+    Copy-Item -Force $from $to
+}
+
 $configDir = 'C:\tools\configs'
 
 $returnDir = Get-Location
@@ -43,29 +49,24 @@ foreach ($ide in $ides) {
         if (Test-Path "$intelliJSaveFolder\$version\jba_config") {
             $currentConfigOutput = "$intelliJSaveFolder\$version\jba_config"
 
-            if (!(Test-Path "$currentConfigOutput\win.keymaps\")) { mkdir "$currentConfigOutput\win.keymaps\" }
-            Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\win.keymaps\josh-keymap.xml"
+            copy "$jetConDir\josh-keymap.xml" "$currentConfigOutput\win.keymaps\josh-keymap.xml"
         } else {
             $currentConfigOutput = "$intelliJSaveFolder\$version"
 
-            if (!(Test-Path "$currentConfigOutput\keymaps\")) { mkdir "$currentConfigOutput\keymaps\" }
-            Copy-Item -Force "$jetConDir\josh-keymap.xml" "$currentConfigOutput\keymaps\josh-keymap.xml"
+            copy "$jetConDir\josh-keymap.xml" "$currentConfigOutput\keymaps\josh-keymap.xml"
         }
 
-        if (!(Test-Path "$currentConfigOutput\codestyles")) { mkdir "$currentConfigOutput\codestyles\" }
-        Copy-Item -Force "$jetConDir\$ide-josh-code-style.xml" "$currentConfigOutput\codestyles\josh-code-style.xml"
 
-        if (!(Test-Path "$currentConfigOutput\colors")) { mkdir "$currentConfigOutput\colors\" }
-        Copy-Item -Force "$jetConDir\josh-theme.icls" "$currentConfigOutput\colors\josh-theme.icls"
+        copy "$jetConDir\$ide-josh-code-style.xml" "$currentConfigOutput\codestyles\josh-code-style.xml"
+        copy "$jetConDir\josh-theme.icls" "$currentConfigOutput\colors\josh-theme.icls"
 
-        Copy-Item -Force "$jetConDir\editor.codeinsight.xml" "$currentConfigOutput\editor.codeinsight.xml"
-        Copy-Item -Force "$jetConDir\editor.xml" "$currentConfigOutput\editor.xml"
-        Copy-Item -Force "$jetConDir\ide.general.xml" "$currentConfigOutput\ide.general.xml"
+        copy "$jetConDir\editor.codeinsight.xml" "$currentConfigOutput\editor.codeinsight.xml"
+        copy "$jetConDir\editor.xml" "$currentConfigOutput\editor.xml"
+        copy "$jetConDir\ide.general.xml" "$currentConfigOutput\ide.general.xml"
 
-        if (!(Test-Path "$currentConfigOutput\templates")) { mkdir "$currentConfigOutput\templates\" }
-        Copy-Item -Force "$jetConDir\templates\Angular.xml" "$currentConfigOutput\templates\Angular.xml"
-        Copy-Item -Force "$jetConDir\templates\JavaScript-Testing.xml" "$currentConfigOutput\templates\JavaScript Testing.xml"
-        Copy-Item -Force "$jetConDir\templates\JavaScript.xml" "$currentConfigOutput\templates\JavaScript.xml"
+        copy "$jetConDir\templates\Angular.xml" "$currentConfigOutput\templates\Angular.xml"
+        copy "$jetConDir\templates\JavaScript-Testing.xml" "$currentConfigOutput\templates\JavaScript Testing.xml"
+        copy "$jetConDir\templates\JavaScript.xml" "$currentConfigOutput\templates\JavaScript.xml"
     }
 }
 
@@ -75,16 +76,16 @@ foreach ($ide in $ides) {
 
 $vsConDir = "$configDir\vs-code"
 
-Copy-Item "$vsConDir\settings.json" "$env:APPDATA\Code\User\settings.json"
-Copy-Item "$vsConDir\keybindings.json" "$env:APPDATA\Code\User\keybindings.json"
+copy "$vsConDir\settings.json" "$env:APPDATA\Code\User\settings.json"
+copy "$vsConDir\keybindings.json" "$env:APPDATA\Code\User\keybindings.json"
 
 <#
  # Terminal
  #>
 
 $termFigsDir = "$configDir\win-terminal"
-if(Test-Path "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState") {
-    Copy-Item "$termFigsDir\settings.json" "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json" 
+if (Test-Path "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState") {
+    copy "$termFigsDir\settings.json" "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe\LocalState\settings.json"
 }
 
 <#
@@ -93,9 +94,9 @@ if(Test-Path "$env:LocalAppData\Packages\Microsoft.WindowsTerminal_8wekyb3d8bbwe
 
 $viConDir = "$configDir\vim"
 
-Copy-Item "$viConDir\_vimrc" "$env:USERPROFILE\_vimrc"
+copy "$viConDir\_vimrc" "$env:USERPROFILE\_vimrc"
 Remove-Item -Recurse "$env:USERPROFILE\vimfiles"
-Copy-Item -Recurse -Force "$viConDir\vimfiles" "$env:USERPROFILE"
+copy -Recurse -Force "$viConDir\vimfiles" "$env:USERPROFILE"
 
 <#
  # Powershell shortcut
@@ -103,7 +104,7 @@ Copy-Item -Recurse -Force "$viConDir\vimfiles" "$env:USERPROFILE"
 
 $psConDir = "$configDir\powershell"
 
-Copy-Item "$psConDir\Windows PowerShell.lnk" "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
+copy "$psConDir\Windows PowerShell.lnk" "$env:APPDATA\Microsoft\Windows\Start Menu\Programs\Windows PowerShell\Windows PowerShell.lnk"
 
 log 'Coppied configs.'
 cd $returnDir
