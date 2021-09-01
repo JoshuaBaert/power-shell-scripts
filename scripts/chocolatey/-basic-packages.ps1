@@ -5,6 +5,7 @@ $packages =
     'greenshot',
     'gnvm',
     'micro',
+    'nircmd',
     'mountain-duck',
     'postman',
     'screentogif',
