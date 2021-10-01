@@ -1,9 +1,9 @@
 param (
-    [switch] $push = $true
+    [switch] $noPush = $false
 )
 
 git add -A
 git commit --amend --no-edit -C HEAD
-if($push) {
+if($noPush) {
     git push -f
 }
