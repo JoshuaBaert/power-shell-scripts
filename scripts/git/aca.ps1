@@ -4,6 +4,6 @@ param (
 
 git add -A
 git commit --amend --no-edit -C HEAD
-if($noPush) {
-    git push -f
+if(!$noPush) {
+    git push --force
 }
