@@ -6,7 +6,6 @@ $packages =
     'gnvm',
     'micro',
     'nircmd',
-    'mountain-duck',
     'postman',
     'screentogif',
     'slack',
@@ -16,6 +15,7 @@ $packages =
 # Other usefull packages
 # fiddler
 # keepass
+# mountain-duck
 
 $list = choco list --local-only
 
