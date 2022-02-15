@@ -7,6 +7,7 @@ $packages =
     'micro',
     'nircmd',
     'postman',
+    'powershell-core',
     'screentogif',
     'slack',
     'vscode',
