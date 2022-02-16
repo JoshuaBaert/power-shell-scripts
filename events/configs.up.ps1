@@ -57,6 +57,18 @@ foreach ($ide in $ides) {
         }
 
 
+        if (!(test-path "$currentConfigOutput\codestyles")) {
+            mkdir "$currentConfigOutput\codestyles"
+        }
+
+        if (!(test-path "$currentConfigOutput\colors")) {
+            mkdir "$currentConfigOutput\colors"
+        }
+
+        if (!(test-path "$currentConfigOutput\templates")) {
+            mkdir "$currentConfigOutput\templates"
+        }
+
         copy "$jetConDir\$ide-josh-code-style.xml" "$currentConfigOutput\codestyles\josh-code-style.xml"
         copy "$jetConDir\josh-theme.icls" "$currentConfigOutput\colors\josh-theme.icls"
 
