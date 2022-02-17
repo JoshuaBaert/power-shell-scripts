@@ -40,7 +40,7 @@ foreach ($ide in $ides) {
     $folders = Get-ChildItem $intelliJSaveFolder -Directory -Filter "*$ide*" | Sort-Object -Descending
 
     if ($folders.Length -gt 0) {
-        $version = $folders[0]
+        $version = ($folders[0]).Name
 
         write $version
 
@@ -49,10 +49,16 @@ foreach ($ide in $ides) {
         if (Test-Path "$intelliJSaveFolder\$version\jba_config") {
             $currentConfigOutput = "$intelliJSaveFolder\$version\jba_config"
 
+            if (!(test-path "$currentConfigOutput\win.keymaps")) {
+                mkdir "$currentConfigOutput\win.keymaps"
+            }
             copy "$jetConDir\josh-keymap.xml" "$currentConfigOutput\win.keymaps\josh-keymap.xml"
         } else {
             $currentConfigOutput = "$intelliJSaveFolder\$version"
 
+            if (!(test-path "$currentConfigOutput\keymaps")) {
+                mkdir "$currentConfigOutput\keymaps"
+            }
             copy "$jetConDir\josh-keymap.xml" "$currentConfigOutput\keymaps\josh-keymap.xml"
         }
 
