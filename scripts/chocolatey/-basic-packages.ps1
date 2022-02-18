@@ -1,6 +1,7 @@
 $packages =
     '7zip',
     'autohotkey',
+    'deno',
     'git',
     'greenshot',
     'gnvm',
