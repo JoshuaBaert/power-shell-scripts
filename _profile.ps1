@@ -58,3 +58,7 @@ function cdt { Set-Location "$preferredDir\test" }
 Remove-Variable alias
 Remove-Variable prefix
 Remove-Variable dir
+
+if(!$IsWindows) {
+    Set-PSReadlineKeyHandler -Key Tab -Function TabCompleteNext
+}
