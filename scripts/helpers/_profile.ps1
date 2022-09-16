@@ -10,3 +10,12 @@ function rmrf {
 function isAdmin {
     write (New-Object Security.Principal.WindowsPrincipal([Security.Principal.WindowsIdentity]::GetCurrent())).IsInRole([Security.Principal.WindowsBuiltInRole]::Administrator)
 }
+
+function live {
+    npx live-server --no-browser
+}
+
+function coverage {
+    cd ./coverage
+    live
+}
