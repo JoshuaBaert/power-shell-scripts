@@ -2,17 +2,22 @@ $packages =
     '7zip',
     'autohotkey',
     'deno',
+    'filezilla',
     'git',
     'greenshot',
     'gnvm',
     'micro',
-    'nircmd',
     'postman',
     'powershell-core',
     'screentogif',
-    'slack',
     'vscode',
     'microsoft-windows-terminal'
+
+$personalPackages =
+    'brave',
+    'vb-cable',
+    'vlc',
+    'voicemeeter-banana'
 
 # Other usefull packages
 # fiddler
