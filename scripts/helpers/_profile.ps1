@@ -18,4 +18,5 @@ function live {
 function coverage {
     cd ./coverage
     live
+    cd ../
 }
