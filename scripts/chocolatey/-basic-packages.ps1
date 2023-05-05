@@ -5,7 +5,6 @@ $packages =
     'filezilla',
     'git',
     'greenshot',
-    'gnvm',
     'micro',
     'postman',
     'powershell-core',
