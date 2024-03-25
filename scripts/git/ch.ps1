@@ -8,7 +8,7 @@ $branches = git branch
 
 function checkout {
     git checkout $args
-    if (($branchName -like "master*" -or $branchName -like "dev*" -or $branchName -like "sandbox*") -and !$noPull) {
+    if (($branchName -like "master*" -or $branchName -like "dev*" -or $branchName -like "sandbox*" -or $branchName -like "main*") -and !$noPull) {
         git pull
     } elseif ($pull) {
         git pull
