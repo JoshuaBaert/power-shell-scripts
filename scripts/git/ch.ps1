@@ -20,12 +20,9 @@ if ($branches -like "*$branchName*") {
 } else {
     $remoteBranches = git ls-remote --heads
     $matchingBranches = $remoteBranches -match ".*$branchName.*"
+    echo $matchingBranches
 
-    if (($matchingBranches.length) -gt 0) {
-        write 'Checking out remote branch.'
-        git fetch
-        checkout $args
-    } else {
+    if (!$matchingBranches) {
         Write-Warning "No Remote.... Want to create $branchName (Y or N)"
 
         $keyOption = 'Y', 'N'
@@ -43,5 +40,9 @@ if ($branches -like "*$branchName*") {
             checkout -b $args
             git push --set-upstream origin $branchName
         }
+    } else {
+        write 'Checking out remote branch.'
+        git fetch
+        checkout $args
     }
 }
