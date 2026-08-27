@@ -77,4 +77,6 @@ Set-PSReadLineOption -PredictionViewStyle ListView
 if(!$IsWindows) {
     function ll {ls -la}
     function la {ls -a}
+} else {
+    function ll {ls}
 }
